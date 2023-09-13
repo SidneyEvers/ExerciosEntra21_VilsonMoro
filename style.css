@@ -1,0 +1,63 @@
+body{
+    background-color: grey;
+}
+h1{
+    font-family: 'Raleway', sans-serif;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-left: -5px;
+    margin-bottom: -50px;
+}
+header{
+    background-color: #ccc;
+    
+}
+a:hover{
+background-color: grey;
+}
+
+li a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 25px;
+                
+}
+.menu{
+    list-style-type: none;
+    display: flex;
+    gap: 30px;  
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Raleway', sans-serif;        
+    
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+.i1{
+    margin-left: 80px;;
+}
+.i2{
+    margin-left: 400px;
+    margin-top: 70px;
+}
+.fim{
+    list-style-type: none;
+    margin-left: -30px;
+}
+footer{
+    background-color: #ccc;
+    margin-top: 70px;
+    padding: 8px;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Raleway', sans-serif;    
+}
+.meio{
+    margin-left: 500px;
+    margin-top: -30px;
+}
+.final{
+    margin-left: 1100px;
+    margin-top: -45px;
+}
