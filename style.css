@@ -61,14 +61,13 @@ footer{
     margin-left: 1100px;
     margin-top: -45px;
 }
-
-        .verificaridade{
-            margin-top: 150px;
-            font-size: 20px;
-        }
-        .titulidade{
-            font-size: 35px;
-        }
+.verificaridade{
+       margin-top: 150px;
+     font-size: 20px;
+ }
+ .titulidade{
+      font-size: 35px;
+ }
         .espaconome{
             margin-top: 100px;
             margin-bottom: -50px;
@@ -99,3 +98,15 @@ footer{
             margin-top: 10px;
             font-family: 'Kanit';
         }       
+        .pai{
+            margin-bottom: 10px;
+            border-style: dotted;
+            padding: 10px;
+        }
+        .mae{
+            display: flex;
+            justify-content: center;
+            
+            
+    
+        }
