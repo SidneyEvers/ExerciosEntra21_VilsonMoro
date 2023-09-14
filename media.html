@@ -8,26 +8,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';">
     <title>Document</title>
-    <style>
-        .principalmedia{
-            margin-left: 500px;
-            background-color: yellow;
-            
-        }
-
-    </style>
 </head>
 <body>
     
     <header>
         <nav>
-           
             <h1>Fonte de pesquisa</h1>
             <img class="i1" src="./CCC-logo-design-ccc-logo-logo-design-Graphics-13949996-2-580x386.jpg" alt="logomarca" height="70px" width="300px">
             <ul class="menu">
                 <li class="lista">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                    <li><a href="idade.html">Idade</a></li>
                    <li><a href=".media.html">Média</a></li>
                    <li><a href="#">IMC</a></li>
@@ -35,63 +27,65 @@
                 </li>
             </ul>
         </nav>
+
     </header>
 
-    <p class="titulomedia">Aqui você irá realizar o caálculo da sua média</p>
-
-    <div class="principalmedia">
-        <p>Insira seu nome:</p>
-        <input class="nomemedia" type="text" placeholder="Insira seu nome">
-
-        <p>Digite a primeira nota:</p>
-        <input class="n1" type="text" placeholder="Insira a nota aqui">
-
-        <p>Digite a segunda nota:</p>
-        <input class="n2" type="text" placeholder="Insira a nota aqui">
-
-        <p>Digite a terceira nota:</p>
-        <input class="n3" type="text" placeholder="Insira a nota aqui">
-
-        <p>Insira a frequencia do aluno:</p>
-        <input class="f1" type="text" placeholder="Digite aqui">
-
+    <div class="divfonte">
+         <p class="titulomedia">Aqui você irá realizar o caálculo da sua média!</p>
     </div>
 
-    <button onclick="resultadomedia()" name = "button">Verificar</button>
+    <div class="principalmedia">
 
-    <p class="resultadomedia">Aqui aparecerá o resultado</p>
+        <div class="divnomemedia">
+            <strong>Insira seu nome:</strong>
+        </div>
+
+        <div class="divinputnome">
+            <input class="nomemedia" type="text" placeholder="Insira seu nome">
+        </div>
+
+        <div class="divnota1">
+            <strong>Digite a primeira nota:</strong>
+        </div>
+
+        <div class="inputnota1">
+            <input class="n1" type="text" placeholder="Insira a nota aqui">
+        </div>
+
+        <div class="divnota2">
+            <strong>Digite a segunda nota:</strong>
+        </div>
+
+        <div class="inputnota2">
+            <input class="n2" type="text" placeholder="Insira a nota aqui">
+        </div>
+
+        <div class="divnota3">
+            <strong>Digite a terceira nota:</strong>
+        </div>
+
+        <div class="inputnota3">
+            <input class="n3" type="text" placeholder="Insira a nota aqui">
+        </div>
+
+        <div class="divfrq">
+            <strong>Insira a frequencia do aluno:</strong>
+        </div>
+
+        <div class="inputfrq">
+            <input class="f1" type="text" placeholder="Digite aqui">
+        </div>
+
+        <div>
+            <button onclick="resultadomedia()" name="btnmedia">Verificar</button>
+        </div>
+    </div>
+
+    <div class="divresultado">
+        <p class="resultadomedia">Aqui aparecerá o resultado</p>
+    </div>
 
 
-<script>
-    function resultadomedia(){
-
-        let nota1 = parseFloat(document.querySelector(".n1").value);
-
-        let nota2 = parseFloat(document.querySelector(".n2").value);
-
-        let nota3 = parseFloat(document.querySelector(".n3").value);
-
-        const frq = parseFloat(document.querySelector(".f1").value);
-
-        const titumedia = document.querySelector(".resultadomedia");
-
-        let todasAsNotas = parseInt((nota1 + nota2 + nota3));
-
-        let mediaNotas = parseInt(todasAsNotas / 3);
-
-        if(mediaNotas >= 7) {
-            titumedia.innerText = `Media: ${mediaNotas} --> Aprovado`
-            console.log(mediaNotas);
-        } else {
-            titumedia.innerText = 'Voce foi reprovado'
-            console.log(mediaNotas)
-        }
-
-        
-
-    }
-</script>
-
-
+<script src="script.js"></script>
 </body>
 </html>

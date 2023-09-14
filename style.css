@@ -106,7 +106,83 @@ footer{
         .mae{
             display: flex;
             justify-content: center;
-            
-            
-    
         }
+        .divnomemedia{
+            justify-content: center;
+            display: flex;
+            font-family: 'Raleway', sans-serif;
+            font-size: 30px;
+            margin-top: 20px;
+           }
+           .titulomedia{
+            font-family: 'Raleway', sans-serif;
+            font-size: 30px;   
+           }
+           .divinputnome{
+            justify-content: center;
+            display: flex;
+           }
+           .divnota1{
+            justify-content: center;
+            display: flex;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+           }
+           .inputnota1{
+            justify-content: center;
+            display: flex;
+           }
+           .divnota2{
+            justify-content: center;
+            display: flex;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+           }
+           .inputnota2{
+            justify-content: center;
+            display: flex;
+           }
+           .divnota3{
+            justify-content: center;
+            display: flex;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+           }
+           .inputnota3{
+            justify-content: center;
+            display: flex;
+           }
+           .divfrq{
+            justify-content: center;
+            display: flex;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+           }
+           .inputfrq{
+            justify-content: center;
+            display: flex;
+           }
+           .btnverificarmedia{
+            justify-content: center;
+            display: flex;
+           }
+           .principalmedia button{
+            margin-left: 600px;
+            margin-top: 10px;
+           }
+           .divresultado{
+            margin-left: 180px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: -250px;
+            width: 300px;
+            font-size: 30px;
+           }
