@@ -61,20 +61,28 @@ footer{
     margin-left: 1100px;
     margin-top: -45px;
 }
+
+
+
+
+
+
+
 .verificaridade{
-       margin-top: 150px;
+    margin-top: 150px;
      font-size: 20px;
  }
  .titulidade{
       font-size: 35px;
  }
         .espaconome{
-            margin-top: 100px;
-            margin-bottom: -50px;
-            margin-left: 470px;
+            margin: auto;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
             font-size: 20px;
-            font-family: 'Kanit';
-                        
+            margin-top: -10px;
+            margin-bottom: 5px; 
+            width: 15%;                
         }
         .espaconome p{
             margin-bottom: -2px;
@@ -107,12 +115,21 @@ footer{
             display: flex;
             justify-content: center;
         }
-        .divnomemedia{
-            justify-content: center;
-            display: flex;
-            font-family: 'Raleway', sans-serif;
-            font-size: 30px;
-            margin-top: 20px;
+        
+
+
+
+
+
+
+            .divnomemedia{
+                margin: auto;
+                text-align: center;
+                font-family: 'Raleway', sans-serif;
+                font-size: 20px;
+                margin-top: -10px;
+                margin-bottom: 5px; 
+                width: 15%;  
            }
            .titulomedia{
             font-family: 'Raleway', sans-serif;
@@ -186,3 +203,86 @@ footer{
             width: 300px;
             font-size: 30px;
            }
+
+
+
+
+
+
+           .intimc{
+            margin: auto;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 30px;
+            width: 45%;
+        }
+        .nomeimc{
+            margin: auto;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: -10px;
+            margin-bottom: 5px; 
+            width: 15%;       
+        }
+        .inputnomeimc{
+            width: 15%;  
+            margin: auto;
+            text-align: center;
+        }
+        .valoridade{
+            margin: auto;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 5px; 
+            width: 15%;   
+        }
+        .inputidadeimc{
+            width: 15%;  
+            margin: auto;
+            text-align: center;
+        }
+        .valorpeso{
+            margin: auto;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 5px; 
+            width: 15%;  
+        }
+        .inputpesoimc{
+            width: 15%;  
+            margin: auto;
+            text-align: center;
+        }
+        .valoraltura{
+            margin: auto;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 5px; 
+            width: 15%;   
+        }
+        .inputaltura{
+            width: 15%;  
+            margin: auto;
+            text-align: center;
+        }
+        .botaoimc{
+            width: 15%;  
+            margin: auto;
+            text-align: center;
+        }
+        .valortotalimc{
+            margin-left: 180px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: -250px;
+            width: 300px;
+            font-size: 30px;
+        }
+           
