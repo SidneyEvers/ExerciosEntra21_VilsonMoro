@@ -48,7 +48,7 @@ nav{
 }
 footer{
     background-color: #ccc;
-    margin-top: 70px;
+    margin-top: 40px;
     padding: 8px;
     font-family: 'Kanit', sans-serif;
     font-family: 'Raleway', sans-serif;    
@@ -61,6 +61,28 @@ footer{
     margin-left: 1100px;
     margin-top: -45px;
 }
+.footermedia{
+    background-color: #ccc;
+    margin-top: 155px;
+    padding: 8px;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Raleway', sans-serif;  
+}
+.footerimc{
+    background-color: #ccc;
+    margin-top: 70px;
+    padding: 8px;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Raleway', sans-serif; 
+}
+.footeridade{
+    
+        background-color: #ccc;
+        margin-top: 140px;
+        padding: 8px;
+        font-family: 'Kanit', sans-serif;
+        font-family: 'Raleway', sans-serif; 
+    }
 
 
 
@@ -107,14 +129,49 @@ footer{
             font-family: 'Kanit';
         }       
         .pai{
-            margin-bottom: 10px;
-            border-style: dotted;
-            padding: 10px;
+            border: 1px solid rgb(253, 251, 251);
+            padding: 15px 20px;
+            background-color: rgb(122, 118, 118);
         }
         .mae{
-            display: flex;
-            justify-content: center;
+            border: 4px dotted rgb(0, 0, 0);
+            width: 200px;
+            background-color: rgb(87, 87, 86);
+            padding: 30px;
+            margin:auto;
         }
+        .botaoidade{
+            margin-top: 5px;
+            justify-content: center;
+            display: flex;
+        }
+        .nomeidade{
+            margin: auto;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: -10px;
+            margin-bottom: 5px; 
+        }
+        .digiteaidade{
+            margin: auto;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: -10px;
+            margin-bottom: -20px;
+        }
+        .inputidade{
+            justify-content: center;
+            display: flex;
+        }
+        .inputnome{
+            justify-content: center;
+            display: flex;
+            
+        }
+    
+    
         
 
 
@@ -203,6 +260,14 @@ footer{
             width: 300px;
             font-size: 30px;
            }
+           .pidade{
+        
+            font-family: 'Raleway', sans-serif;
+            font-size: 25px;
+            margin-top: -150px;
+            margin-bottom: 200px;
+               
+        }
 
 
 

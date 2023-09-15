@@ -1,13 +1,13 @@
 function verificar(){
-    const idade = document.querySelector(".idade").value;
+    const idade = document.querySelector(".idadecolocar").value;
 
-    const titulo = document.querySelector(".titulidade");   
+    const tituidade = document.querySelector(".pidade");   
 
     if(idade < 18){
-        titulo.innerText = "Você é menor de idade";
+        tituidade.innerText = "Você é menor de idade";
     }
     else{
-        titulo.innerText = "Você é maior de idade";
+        tituidade.innerText = "Você é maior de idade";
     }
 }
 
@@ -23,9 +23,9 @@ function resultadomedia(){
 
     const titumedia = document.querySelector(".resultadomedia");
 
-    let todasAsNotas = parseInt((nota1 + nota2 + nota3));
+    let todasAsNotas = parseFloat((nota1 + nota2 + nota3));
 
-    let mediaNotas = parseInt(todasAsNotas / 3);
+    let mediaNotas = parseFloat(todasAsNotas / 3);
 
     if(mediaNotas >= 7 && frq >= 75) {
         titumedia.innerText = `Media: ${mediaNotas} --> Aprovado`
@@ -57,27 +57,29 @@ function calculoImcbase(){
    }
 
    else if(resultadoimc >= 17 && resultadoimc <= 18.49){
-    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc}, você está abaixo do peso!`;
+    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc.toFixed(2)}, você está abaixo do peso!`;
     console.log(resultadoimc);
    }
 
    else if(resultadoimc >= 18.5 && resultadoimc <= 24.99){
-    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc}, você está com peso normal!`;
+    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc.toFixed(2)}, você está com peso normal!`;
    }
 
    else if(resultadoimc >= 25 && resultadoimc <= 29.99){
-    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc}, você está acima do peso!`;
+    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc.toFixed(2)}, você está acima do peso!`;
    }
 
    else if(resultadoimc >= 30 && resultadoimc <= 34.99){
-    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc}, você está com obesidade 1!`;
+    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc.toFixed(2)}, você está com obesidade 1!`;
    }
 
    else if(resultadoimc >= 35 && resultadoimc <= 39.99){
-    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc}, você está com obesidade 2!`;
+    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc.toFixed(2)}, você está com obesidade 2!`;
    }
 
-   else if(resultadoimc > 75){
-    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc}, você está com obesidade 3!`;
+   else{
+    valormaximoimx.innerText = `Seu IMC é de ${resultadoimc.toFixed(2)}, você está com obesidade 3!`;
    }
 }
+
+

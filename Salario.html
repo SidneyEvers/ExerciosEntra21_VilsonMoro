@@ -9,10 +9,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap" rel="stylesheet">
     <title>Fonte de pesquisas</title>
 </head>
+<style>
+    .menusalario{
+        font-family: 'Raleway', sans-serif;
+        font-size: 25px;
+        justify-content: center;
+        display: flex;
+    }
+    .nomeemprego{
+        justify-content: center;
+        display: flex;
+        margin-top: 15px;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+    }
+    .inputcargo{
+        justify-content: center;
+        display: flex;
+        margin-top: 5px;
+    }
+    .informenomesalario{
+        justify-content: center;
+        display: flex;
+        margin-top: 15px;
+        font-size: 19px;
+        font-family: 'Raleway', sans-serif;
+        margin-bottom: -95px;
+    }
+    .inputsalario{
+        justify-content: center;
+        display: flex;
+        margin-top: 100px;
+        
+        
+        
+    }
+    .resultadoaumento{
+        margin-left: 180px;
+        font-family: 'Raleway', sans-serif;
+        margin-left: 0px;
+        font-size: 20px;
+        margin-top: 30px;
+        width: 470px;
+        
+}
+    .resultadosalario{
+        margin-left: 180px;
+        font-family: 'Raleway', sans-serif;
+        margin-left: 0px;
+        font-size: 20px;
+        margin-top: -170px;
+        width: 450px; 
+        
+    }
+    
+    .botaosalariobase{
+        margin-left: 30%;
+        margin-top: 5px;
+    }
+    .princpalsalariomenu{
+        border: 1px solid rgb(243, 240, 240);
+        width: 300px;
+        margin-left: 20px;
+        height: 200px;
+        margin-top: 20px;
+        padding-bottom: 10px;
+        background-color: rgba(255, 228, 196, 0.329);
+    }
+    .principal2salario{
+        border: 2px solid rgb(248, 244, 244);
+        margin: auto;
+        height: 250px;
+        width: 340px;
+        position: relative;
+        background-color: rgb(78, 78, 92);
+    }
+    .footersalario{
+        background-color: #ccc;
+        margin-top: 155px;
+        padding: 8px;
+        font-family: 'Kanit', sans-serif;
+        font-family: 'Raleway', sans-serif;   
+    }
+    
+    
+</style>
 <body>
     <header>
         <nav>
-           
             <h1>Fonte de pesquisa</h1>
             <img class="i1" src="./CCC-logo-design-ccc-logo-logo-design-Graphics-13949996-2-580x386.jpg" alt="logomarca" height="70px" width="300px">
             <ul class="menu">
@@ -27,10 +111,128 @@
         </nav>
     </header>
 
-    <b>Aqui você vai conseguir verificar seu aumento de salário!</b>
+    <div class="menusalario">
+        <p>Aqui você vai conseguir verificar seu aumento de salário!</p>
+    </div>
 
-    <input type="radio">Supervisor
 
-    <input type="radio">
+    <div class="principal2salario">
+        <div class="princpalsalariomenu">
+       
+
+        <div class="nomeemprego">
+            <label>Informe seu cargo:</label>
+        </div>
+
+        <div class="inputcargo">
+            <input class="informecargo" type="text" placeholder="Digite aqui">  
+        </div>
+
+        <div class="informenomesalario">
+            <label>Informe seu salário:</label>
+        </div>
+
+        <div class="inputsalario">
+            <input class="salario1" type="text" placeholder="Digite aqui">
+        </div>       
+        
+        <div>
+            <button class="botaosalariobase" onclick="verificarsalarionovo()" name="btnsalario">Verificar</button>
+        </div>
+
+        </div>
+    </div>
+
+    <div class="resultadosalario">
+        <p>Aqui aparecerá seu novo salário!</p>
+    </div>
+
+    <div class="resultadoaumento">
+        <p>Aqui aparecerá quanto você recebeu de aumento!</p>
+    </div>
+
+
+    <footer class="footersalario">
+        <ul class="fim">
+            <li>Base de pesquisas Google</li>
+        </ul>
+        <ul class="meio">
+            <p>Site feito por Sidney</p>
+        </ul>
+        <ul class="final">
+            <p>Projeto Entra21</p>
+        </ul>
+    </footer>
+
+<script>
+    function verificarsalarionovo(){
+
+        let salariobase = parseFloat(document.querySelector(".salario1").value);
+
+        let cargoprincipal = document.querySelector(".informecargo").value.toLowerCase();
+
+        let valormaximosalario = parseFloat(document.querySelector(".resultadosalario").value);
+
+        let valortotalaumento = parseFloat(document.querySelector(".resultadoaumento").value);
+       
+        
+
+        if(cargoprincipal == "gerente"){
+
+            let taxa1 = salariobase / 100 * 5;
+
+            let valorfinal = salariobase + taxa1;
+
+            document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 5%!";
+
+            document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
+        }
+        else if(cargoprincipal == "supervisor"){
+
+            let taxa2 = salariobase / 100 * 8;
+
+            let valorfinal = salariobase + taxa2;
+
+            document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 8%!";
+
+            document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
+        }
+        else if(cargoprincipal == "operador"){
+
+            let taxa3 = salariobase / 100 * 9;
+
+            let valorfinal = salariobase + taxa3;
+
+            document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 9%!";
+
+            document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
+        }
+        else{
+            let taxa4 = salariobase / 100 * 10;
+
+            let valorfinal = salariobase + taxa4;
+
+            document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 10%!";
+
+            document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
+        }
+    }
+
+
+
+</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
