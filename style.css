@@ -38,10 +38,6 @@ nav{
 .i1{
     margin-left: 80px;;
 }
-.i2{
-    margin-left: 400px;
-    margin-top: 70px;
-}
 .fim{
     list-style-type: none;
     margin-left: -30px;
@@ -61,9 +57,21 @@ footer{
     margin-left: 1100px;
     margin-top: -45px;
 }
+.geral{
+    border: 4px dotted black;
+    width: 500px;
+    margin-left: 400px;
+    padding: 20px 20px;
+    margin-top: 35px;
+    
+}
+
+
+
+
 .footermedia{
     background-color: #ccc;
-    margin-top: 155px;
+    margin-top: 220px;
     padding: 8px;
     font-family: 'Kanit', sans-serif;
     font-family: 'Raleway', sans-serif;  
@@ -75,13 +83,13 @@ footer{
     font-family: 'Kanit', sans-serif;
     font-family: 'Raleway', sans-serif; 
 }
-.footeridade{
-    
-        background-color: #ccc;
-        margin-top: 140px;
-        padding: 8px;
-        font-family: 'Kanit', sans-serif;
-        font-family: 'Raleway', sans-serif; 
+    .footeridade{
+
+    background-color: #ccc;
+    margin-top: 140px;
+    padding: 8px;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Raleway', sans-serif; 
     }
 
 
@@ -90,13 +98,13 @@ footer{
 
 
 
-.verificaridade{
-    margin-top: 150px;
-     font-size: 20px;
- }
- .titulidade{
-      font-size: 35px;
- }
+    .verificaridade{
+        margin-top: 150px;
+        font-size: 20px;
+    }
+        .titulidade{
+            font-size: 35px;
+        }
         .espaconome{
             margin: auto;
             text-align: center;
@@ -131,12 +139,12 @@ footer{
         .pai{
             border: 1px solid rgb(253, 251, 251);
             padding: 15px 20px;
-            background-color: rgb(122, 118, 118);
+            background-color: rgba(255, 228, 196, 0.329);
         }
         .mae{
-            border: 4px dotted rgb(0, 0, 0);
+            border: 2px solid rgb(248, 244, 244);
             width: 200px;
-            background-color: rgb(87, 87, 86);
+            background-color: rgb(78, 78, 92);
             padding: 30px;
             margin:auto;
         }
@@ -168,25 +176,26 @@ footer{
         .inputnome{
             justify-content: center;
             display: flex;
-            
+        }
+        .pidade{
+            font-family: 'Raleway', sans-serif;
+            font-size: 25px;
+            margin-top: -150px;
+            margin-bottom: 200px;
         }
     
     
         
+   
 
-
-
-
-
-
-            .divnomemedia{
-                margin: auto;
-                text-align: center;
-                font-family: 'Raleway', sans-serif;
-                font-size: 20px;
-                margin-top: -10px;
-                margin-bottom: 5px; 
-                width: 15%;  
+        .divnomemedia{
+            margin: auto;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            margin-top: -10px;
+            margin-bottom: 5px; 
+            width: 50%;  
            }
            .titulomedia{
             font-family: 'Raleway', sans-serif;
@@ -244,42 +253,37 @@ footer{
             justify-content: center;
             display: flex;
            }
-           .btnverificarmedia{
-            justify-content: center;
-            display: flex;
-           }
+           
            .principalmedia button{
-            margin-left: 600px;
+            margin-left: 120px;
             margin-top: 10px;
+            
            }
            .divresultado{
-            margin-left: 180px;
+            margin-left: 120px;
             font-family: 'Raleway', sans-serif;
             font-size: 20px;
             margin-top: -250px;
             width: 300px;
             font-size: 30px;
            }
-           .pidade{
-        
-            font-family: 'Raleway', sans-serif;
-            font-size: 25px;
-            margin-top: -150px;
-            margin-bottom: 200px;
-               
-        }
+
+ 
+
+
+           
 
 
 
 
 
 
-           .intimc{
-            margin: auto;
-            text-align: center;
-            font-family: 'Raleway', sans-serif;
-            font-size: 30px;
-            width: 45%;
+        .intimc{
+        margin: auto;
+        text-align: center;
+        font-family: 'Raleway', sans-serif;
+        font-size: 30px;
+        width: 45%;
         }
         .nomeimc{
             margin: auto;
@@ -288,10 +292,10 @@ footer{
             font-size: 20px;
             margin-top: -10px;
             margin-bottom: 5px; 
-            width: 15%;       
+            width: 70%;              
         }
         .inputnomeimc{
-            width: 15%;  
+            width: 70%;  
             margin: auto;
             text-align: center;
         }
@@ -302,10 +306,10 @@ footer{
             font-size: 20px;
             margin-top: 20px;
             margin-bottom: 5px; 
-            width: 15%;   
+            width: 70%;   
         }
         .inputidadeimc{
-            width: 15%;  
+            width: 70%; 
             margin: auto;
             text-align: center;
         }
@@ -316,10 +320,10 @@ footer{
             font-size: 20px;
             margin-top: 20px;
             margin-bottom: 5px; 
-            width: 15%;  
+            width: 70%;  
         }
         .inputpesoimc{
-            width: 15%;  
+            width: 70%; 
             margin: auto;
             text-align: center;
         }
@@ -330,15 +334,16 @@ footer{
             font-size: 20px;
             margin-top: 20px;
             margin-bottom: 5px; 
-            width: 15%;   
+            width: 70%;  
         }
         .inputaltura{
-            width: 15%;  
+            width: 70%; 
             margin: auto;
             text-align: center;
         }
         .botaoimc{
-            width: 15%;  
+            width: 70%; 
+            padding-top: 3px;
             margin: auto;
             text-align: center;
         }

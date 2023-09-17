@@ -42,7 +42,6 @@
         margin-top: 100px;
         
         
-        
     }
     .resultadoaumento{
         margin-left: 180px;
@@ -81,17 +80,29 @@
         margin: auto;
         height: 250px;
         width: 340px;
+        margin-top: 70px;
         position: relative;
         background-color: rgb(78, 78, 92);
     }
     .footersalario{
         background-color: #ccc;
-        margin-top: 155px;
+        margin-top: 200px;
         padding: 8px;
         font-family: 'Kanit', sans-serif;
-        font-family: 'Raleway', sans-serif;   
+         
     }
-    
+    .opcoesempregos{
+        justify-content: center;
+        display: flex;
+        font-family: 'Raleway', sans-serif;
+        font-size: 20px;
+    }
+    .empregosemlinha{
+        justify-content: center;
+        display: flex;
+        font-family: 'Raleway', sans-serif;
+        font-size: 20px;
+    }
     
 </style>
 <body>
@@ -115,13 +126,20 @@
         <p>Aqui você vai conseguir verificar seu aumento de salário!</p>
     </div>
 
+    <div class="opcoesempregos">
+        <label>Essas são as opções de cargos que você pode escolher!</label>
+    </div>
+
+    <div class="empregosemlinha">
+        <label>Gerente, Supervisor, Operador, Colaborador(para demais cargos)</label>
+    </div>
 
     <div class="principal2salario">
         <div class="princpalsalariomenu">
        
 
         <div class="nomeemprego">
-            <label>Informe seu cargo:</label>
+            <strong>Informe seu cargo:</strong>
         </div>
 
         <div class="inputcargo">
@@ -129,7 +147,7 @@
         </div>
 
         <div class="informenomesalario">
-            <label>Informe seu salário:</label>
+            <strong>Informe seu salário:</strong>
         </div>
 
         <div class="inputsalario">
@@ -164,64 +182,8 @@
         </ul>
     </footer>
 
-<script>
-    function verificarsalarionovo(){
 
-        let salariobase = parseFloat(document.querySelector(".salario1").value);
-
-        let cargoprincipal = document.querySelector(".informecargo").value.toLowerCase();
-
-        let valormaximosalario = parseFloat(document.querySelector(".resultadosalario").value);
-
-        let valortotalaumento = parseFloat(document.querySelector(".resultadoaumento").value);
-       
-        
-
-        if(cargoprincipal == "gerente"){
-
-            let taxa1 = salariobase / 100 * 5;
-
-            let valorfinal = salariobase + taxa1;
-
-            document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 5%!";
-
-            document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
-        }
-        else if(cargoprincipal == "supervisor"){
-
-            let taxa2 = salariobase / 100 * 8;
-
-            let valorfinal = salariobase + taxa2;
-
-            document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 8%!";
-
-            document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
-        }
-        else if(cargoprincipal == "operador"){
-
-            let taxa3 = salariobase / 100 * 9;
-
-            let valorfinal = salariobase + taxa3;
-
-            document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 9%!";
-
-            document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
-        }
-        else{
-            let taxa4 = salariobase / 100 * 10;
-
-            let valorfinal = salariobase + taxa4;
-
-            document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 10%!";
-
-            document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
-        }
-    }
-
-
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
 
