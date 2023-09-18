@@ -29,65 +29,76 @@ function verificar(){
     }
 
 }
-    function resultadomedia() {
-        let nota1 = parseFloat(document.querySelector(".n1").value);
-        let nota2 = parseFloat(document.querySelector(".n2").value);
-        let nota3 = parseFloat(document.querySelector(".n3").value);
-        const frq = parseFloat(document.querySelector(".f1").value);
-        let nomedentromedia = document.querySelector(".nomemedia").value;
-        const titumedia = document.querySelector(".resultadomedia");
-    
-        
-        if (nomedentromedia === '') {
-            titumedia.innerText = 'Todos os campos precisam ser preenchidos!';
-            return false;
-        }
-    
-        
-        if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(frq)) {
-            titumedia.innerText = 'Por favor, digite apenas números válidos nas notas ou frequência!';
-            return false;
-        }
-    
-        
-        if (nota1 < 0 || nota1 > 10 || nota2 < 0 || nota2 > 10 || nota3 < 0 || nota3 > 10 || frq < 0 || frq > 100) {
-            titumedia.innerText = 'Por favor, insira notas e frequência válidas (0 a 10 para notas e 0 a 100 para frequência)';
-            return false;
-        }
-    
-        let todasAsNotas = nota1 + nota2 + nota3;
-        let mediaNotas = todasAsNotas / 3;
-    
-        if (mediaNotas >= 7 && frq >= 75) {
-            titumedia.innerText = `Média: ${mediaNotas.toFixed(2)} --> Aprovado`;
-            console.log(mediaNotas);
-        } else {
-            titumedia.innerText = 'Você foi reprovado';
-            console.log(mediaNotas);
-        }
+function resultadomedia() {
+    const nota1 = document.querySelector(".n1").value;
+    const nota2 = document.querySelector(".n2").value;
+    const nota3 = document.querySelector(".n3").value;
+    const frq = document.querySelector(".f1").value;
+    const nomedentromedia = document.querySelector(".nomemedia").value;
+    const titumedia = document.querySelector(".resultadomedia");
+
+    if (nota1 === '' || nota2 === '' || nota3 === '' || frq === '' || nomedentromedia === '') {
+        titumedia.innerText = 'Todos os campos precisam ser preenchidos!';
+        return false;
     }
-    
+
+    if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(frq)) {
+        titumedia.innerText = 'Apenas números podem ser digitados nos campos de notas e frequência!';
+        return false;
+    }
+
+    const nota1Float = parseFloat(nota1);
+    const nota2Float = parseFloat(nota2);
+    const nota3Float = parseFloat(nota3);
+    const frqFloat = parseFloat(frq);
+
+    if (nota1Float < 0 || nota1Float > 10 || nota2Float < 0 || nota2Float > 10 || nota3Float < 0 || nota3Float > 10 || frqFloat < 0 || frqFloat > 100) {
+        titumedia.innerText = 'Por favor, insira notas e frequência válidas (0 a 10 para notas e 0 a 100 para frequência)';
+        return false;
+    }
+
+    const todasAsNotas = nota1Float + nota2Float + nota3Float;
+    const mediaNotas = todasAsNotas / 3;
+
+    if (mediaNotas >= 7 && frqFloat >= 75) {
+        titumedia.innerText = `Média: ${mediaNotas.toFixed(2)} --> Aprovado`;
+        console.log(mediaNotas);
+    } else {
+        titumedia.innerText = 'Você foi reprovado';
+        console.log(mediaNotas);
+    }
+}
+ 
 function calculoImcbase(){
 
 
-    let idade = parseFloat(document.querySelector(".idade1").value);
+    let idade = (document.querySelector(".idade1").value);
 
-    let peso = parseFloat(document.querySelector(".peso1").value);
+    let peso = (document.querySelector(".peso1").value);
 
-    let altura = parseFloat(document.querySelector(".altura1").value);
+    let altura = (document.querySelector(".altura1").value);
 
     let nomedentroimc = document.querySelector(".nomenoimc").value;
 
-    var alturaoquadrado = parseFloat(altura*altura);
-
-    var resultadoimc = parseFloat(peso / alturaoquadrado);
-
     var valormaximoimx = document.querySelector(".valortotalimc");
 
-    if (isNaN(idade) || isNaN(peso) || isNaN(altura) || nomedentroimc === '') {
+    if (idade === '' || peso === '' || altura === '' || nomedentroimc === '') {
         valormaximoimx.innerText = 'Por favor, preencha todos os campos.';
-        return;
+        return false;
     }
+
+    if(isNaN(idade) || isNaN(peso) || isNaN(altura)){
+        valormaximoimx.innerText = 'Apenas numeros podem ser digitados nos campos "idade, peso, altura!';
+        return false;
+    }
+
+    idadeFloat = parseFloat(idade);
+    pesoFloat = parseFloat(peso);
+    alturaFloat = parseFloat(altura);
+
+    var alturaoquadrado = parseFloat(alturaFloat*alturaFloat);
+
+    var resultadoimc = parseFloat(pesoFloat / alturaoquadrado);
 
    if(resultadoimc < 17){
     valormaximoimx.innerText = `Seu IMC é de ${resultadoimc}, você está muito abaixo do peso!`;
@@ -120,69 +131,51 @@ function calculoImcbase(){
    }
 }
 
-function verificarsalarionovo(){
+function verificarsalarionovo() {
+    const basesalario = (document.querySelector(".salario1").value);
+    const cargoprincipal = document.querySelector(".informecargo").value.toLowerCase();
+    const resultadosalario = document.querySelector(".resultadosalario");
+    const resultadoaumento = document.querySelector(".resultadoaumento");
 
-    let salariobase = parseFloat(document.querySelector(".salario1").value);
-
-    let cargoprincipal = document.querySelector(".informecargo").value.toLowerCase();
-
-    let valormaximosalario = parseFloat(document.querySelector(".resultadosalario").value);
-
-    let valortotalaumento = parseFloat(document.querySelector(".resultadoaumento").value);
-
-
-    if(isNaN(salariobase) || cargoprincipal === ''){
-        document.querySelector(".resultadosalario").innerText = 'Todos os campos precisam ser preenchidos!';
-        document.querySelector(".resultadoaumento").innerText = '';
+    if (isNaN(basesalario) || basesalario === '') {
+        resultadosalario.innerText = 'Por favor, insira um valor numérico no campo de salário.';
+        resultadoaumento.innerText = '';
         return false;
     }
-    
+
     if (cargoprincipal !== "gerente" && cargoprincipal !== "supervisor" && cargoprincipal !== "operador" && cargoprincipal !== "colaborador") {
-        document.querySelector(".resultadosalario").innerText = 'Escolha uma opção de cargo válida!';
-        document.querySelector(".resultadoaumento").innerText = '';
-    return false;
+        resultadosalario.innerText = 'Escolha uma opção de cargo válida!';
+        resultadoaumento.innerText = '';
+        return false;
     }
-   
-    
 
-    if(cargoprincipal == "gerente"){
+    const basesalariFloat = parseFloat(basesalario);
 
-        let taxa1 = salariobase / 100 * 5;
+    let taxa;
+    let aumentoPercentual;
 
-        let valorfinal = salariobase + taxa1;
-
-        document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 5%!";
-
-        document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
+    switch (cargoprincipal) {
+        case "gerente":
+            taxa = 5;
+            aumentoPercentual = 5;
+            break;
+        case "supervisor":
+            taxa = 8;
+            aumentoPercentual = 8;
+            break;
+        case "operador":
+            taxa = 9;
+            aumentoPercentual = 9;
+            break;
+        default:
+            taxa = 10;
+            aumentoPercentual = 10;
     }
-    else if(cargoprincipal == "supervisor"){
 
-        let taxa2 = salariobase / 100 * 8;
+    const aumento = (basesalariFloat * taxa) / 100;
+    const valorfinal = basesalariFloat + aumento;
 
-        let valorfinal = salariobase + taxa2;
-
-        document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 8%!";
-
-        document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
-    }
-    else if(cargoprincipal == "operador"){
-
-        let taxa3 = salariobase / 100 * 9;
-
-        let valorfinal = salariobase + taxa3;
-
-        document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 9%!";
-
-        document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
-    }
-    else{
-        let taxa4 = salariobase / 100 * 10;
-
-        let valorfinal = salariobase + taxa4;
-
-        document.querySelector(".resultadosalario").innerText = "Seu aumento foi de 10%!";
-
-        document.querySelector(".resultadoaumento").innerText = `Seu Salário final é de R$${valorfinal}`;
-    }
+    resultadosalario.innerText = `Seu aumento foi de ${aumentoPercentual}%!`;
+    resultadoaumento.innerText = `Seu Salário final é de R$${valorfinal.toFixed(2)}`;
 }
 
