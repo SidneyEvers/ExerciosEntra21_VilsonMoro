@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+
+        border-radius: 5px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #555;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 5px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    th {
+        background-color: #333;
+        color: #fff;
+    }
+
+    th, td button {
+        padding: 5px 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    th button:hover, td button:hover {
+        background-color: #555;
+    }
+</style>
+<body>
+    <div>
+        <label for="fruta">Informe nome de fruta</label>
+        <input type="text" id="fruta" placeholder="Informe nome da fruta" >
+        <button onclick="inserir()">Inserir</button>
+        
+    </div>
+    <button onclick="carregar()">Carregar</button>
+    <ul>
+      <!--Listar os dados do array de fruta-->
+    </ul>
+   <hr>
+    <ul>
+        <li></li>
+    </ul>
+    <hr>
+    
+    <script>
+        const fruits = [];        
+
+
+        function inserir(){
+            let novaFruta = document.getElementById('fruta')
+
+            if(novaFruta.value == ''){
+                alert("É preciso informar o nome da fruta")
+                novaFruta.focus()
+                return
+            }
+
+          
+            let indice = fruits.indexOf(novaFruta.value)
+            alert(indice)
+            if( indice != -1){
+                alert("Esta fruta já foi informada")
+                novaFruta.focus()
+                return  
+            }
+
+            fruits.push(novaFruta.value)
+            novaFruta.value = ''
+        }
+
+       function carregar(){
+            let i = 0
+            let itens = ''
+            while(i < fruits.length){
+              itens += `<li>${fruits[i]}</li>`
+               i++  
+            } 
+            document.getElementsByTagName("ul")[0].innerHTML = itens
+        }
+
+
+        function excluir(item){
+            let indice = fruits.indexOf(item)
+            fruits.splice(indice,1)
+            carregarEmtabela()
+        }
+        
+        function frutaJaExiste(item){
+            let size = fruits.length
+            for(let i = 0; i < size ; i++){
+                if(fruits[i] == item){
+                    return true
+                }
+            }
+            return false
+        }
+    </script>
+</body>
+</html>
