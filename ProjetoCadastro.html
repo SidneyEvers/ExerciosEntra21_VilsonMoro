@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div {
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 5px 10px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    th {
+        background-color: #e3e7eb;
+        color: #fff;
+    }
+</style>
+<body>
+    <div class="t1">
+        <label>Inserir o nome</label>
+    </div>
+
+    <div>
+        <input id="a1" type="text" placeholder="Digite aqui">
+    </div>
+
+    <div>
+        <label>Inserir o telefone</label>
+    </div>
+
+    <div>
+        <input id="a2" type="number" placeholder="Digite aqui">
+    </div>
+
+    <div>
+        <label>Inserir E-mail</label>
+    </div>
+
+    <div>
+        <input id="a3" type="text" placeholder="Digite aqui">
+    </div>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <button onclick="listarEmTabela()">Listar em Tabela</button>
+
+    <button id="b9" style="display:none" onclick="cadastoEditado()">Cadastrar Editado</button>
+    
+    <table>
+        <thead>
+            <th>
+                <tr>
+                    <td>Nome</td>
+                    <td>Telefone</td>
+                    <td>Email</td>
+                </tr>
+            </th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    
+    <script>
+
+        let cadastros = []
+        let contatoEditado = {}
+
+        function cadastrar(){
+            let nome = document.getElementById('a1').value
+            let telefone = document.getElementById('a2').value
+            let email = document.getElementById('a3').value
+
+            if(nome == '' || telefone == '' || email == ''){
+                alert('Por favor preencha todos os campos!')
+                return
+            }
+
+            let cadastroCompleto = {
+                nome: nome,
+                telefone: telefone,
+                email: email,
+            }
+            
+
+            cadastros.push(cadastroCompleto)
+            console.log(cadastros)
+
+            document.getElementById('a1').value = ''
+            document.getElementById('a2').value = ''
+            document.getElementById('a3').value = ''
+        }
+    
+        function listarEmTabela(){
+
+            let itens = ''
+
+            for(let i = 0; i < cadastros.length; i++)
+
+            itens += `<tr><td>${cadastros[i].nome}</td><td>${cadastros[i].telefone}</td><td>${cadastros[i].email}</td></tr><button onclick=excluir(${i})>Excluir</button><button onclick=editar(${i})>Editar</button>`
+                
+        
+            document.querySelector("tbody").innerHTML = itens
+        }
+
+        function excluir(cadastro){
+            console.log(cadastro)
+
+            cadastros.splice(cadastro, 1)
+            
+            listarEmTabela()
+        }
+
+        function editar(i){
+
+            console.log(contatoEditado)
+            console.log(cadastros)
+
+            contatoEditado = cadastros[i]
+            document.getElementById('a1').value = contatoEditado.nome
+            document.getElementById('a2').value = contatoEditado.telefone
+            document.getElementById('a3').value = contatoEditado.email
+
+            let botaoAtualizar = document.getElementById('b9')
+            botaoAtualizar.style.display = "block"
+            botaoAtualizar.onclick = function() {
+                cadastrarEditado(i)
+            }
+        }
+
+        function cadastrarEditado(i){
+
+            console.log(contatoEditado)
+            console.log(cadastros)
+
+            contatoEditado.nome = document.getElementById('a1').value
+            contatoEditado.telefone = document.getElementById('a2').value
+            contatoEditado.email = document.getElementById('a3').value
+
+            let botaoAtualizar = document.getElementById('b9')
+            botaoAtualizar.style.display = "none"
+
+            listarEmTabela()
+        }            
+    </script>
+</body>
+</html>
+
+
