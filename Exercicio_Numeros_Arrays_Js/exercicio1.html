@@ -37,6 +37,45 @@
                 </div>
             </div>
         </div>
+        <div id="a3">
+            <div>
+                <button onclick="listarDescrescente()">Listar em ordem descrescente</button>
+            </div>
+    
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+    
+        <div id="d1">
+            <div>
+                <div id="a4">
+                    <div>
+                        <label>Digite o valor que você deseja buscar</label>
+                        <input id="numero1" type="number" placeholder="Digite aqui">
+                    </div>
+                </div>
+            </div>
+            <button onclick="posicaoArray()">Verificar a posição do item</button>
+            <div class="imprimirPosicao">
+                        
+            </div>
+        </div>
+        
+    
+        <div id="principalExcluir">
+            <div>
+                <label>Digite qual numero deseja excluir</label>
+                <input id="numeroExcluir" type="number" placeholder="Digite aqui">
+            </div>
+            <div>
+                <button onclick="excluir()">Excluir</button>
+            </div>
+    
+            <div class="excluirImprimir">
+    
+            </div>
+        </div>
     </div>
     
     <script>
@@ -53,6 +92,11 @@
                 novoNumero.focus()
             }
 
+            if(isNaN(novoNumero)){
+                alert('Por favor digite apenas numeros!')
+                return false
+                novoNumero.focus()
+            }
 
             document.getElementById('num').value = '';
             
@@ -62,21 +106,66 @@
         }
 
         function listarEmSequencia(){
-            for(let i = 0; i < numeros.length; i++){
-                for(let j = i + 1; j < numeros.length; j++){
-                    if(numeros[i] > numeros[j]){
-                        let aux = numeros[i]
-                        numeros[i] = numeros[j]
-                        numeros[j] = aux
+                for(let i = 0; i < numeros.length; i++){
+                    for(let j = i + 1; j < numeros.length; j++){
+                        if(numeros[i] > numeros[j]){
+                            let aux = numeros[i]
+                            numeros[i] = numeros[j]
+                            numeros[j] = aux
+                        }
                     }
                 }
+                console.log(numeros)
+                document.getElementsByTagName('ul')[0].innerHTML = numeros
             }
-            console.log(numeros)
-            document.getElementsByTagName('ul')[0].innerHTML = numeros
-        }
-        
 
+        function listarDescrescente(){
+                for(let i = 0; i < numeros.length; i++){
+                    for(let j = i + 1; j < numeros.length; j++){
+                        if(numeros[i] < numeros[j]){
+                            let aux = numeros[i]
+                            numeros[i] = numeros[j]
+                            numeros[j] = aux
+                        }
+                    }
+                }
+                console.log(numeros)
+                document.getElementsByTagName('li')[0].innerHTML = numeros
+            }
+
+        function posicaoArray(){
+
+            let numeroPosicao = document.querySelector('#numero1')
+
+            let imprimirPosicao = document.querySelector('.imprimirPosicao')
+
+            for( let i = 0; i < numeros.length; i++){
+                if(numeros[i] == numeroPosicao.value){
+                    imprimirPosicao.innerHTML = `<p>${i}</p>`
+                }
+            }
+        }
+
+        function excluir(){
+
+            let nExcluir = document.getElementById('numeroExcluir').value
+
+            let excluirImprimir = document.getElementById('excluirImprimir')
+
+            for(let i = 0; i < numeros.length; i++){
+            if(numeros[i] == nExcluir){
+                    numeros.splice(i, 1)
+                } 
+            }
+            listarEmSequencia()
+            console.log(numeros)
+        }
+              
     </script>
+    
+
+</body>
+</html>
     
 
 </body>
