@@ -6,6 +6,64 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Compra de Produtos</h1>
+
+    <div id="a1">
+        <div>
+            <label>Insira o nome do produto</label>
+            <input id="nome" type="text" placeholder="Digite aqui">
+        </div>
+        
+        <div>
+            <label>Insira o valor do produto</label>
+            <input id="valor" type="text" placeholder="Digite aqui">
+        </div>
+
+        <div>
+            <label>Insira a quantidade que você deseja adquirir</label>
+            <input id="quantidade" type="text" placeholder="Digite aqui">
+        </div>
+    </div>
+
+    <div>
+        <button onclick="gravar()">Gravar cadastro</button>
+    </div>
+
+    <div>
+        <button onclick="edicao()">Gravar edição</button>
+    </div>
+
+
+    <script>
+
+        let cadastro = []
+
+        let cadastroAlterado = {}
+
+        function gravar(){
+
+            let nome = document.getElementById('nome').value
+
+            let valor = document.getElementById('valor').value
+
+            let qtde = document.getElementById('quantidade').value
+
+            let cadastroCompleto = {
+
+                produto: nome,
+                valor: valor,
+                quantidade: qtde,
+            }
+
+            cadastro.push(cadastroCompleto)
+
+        }
+
+
+
+
+
+    </script>
+
 </body>
 </html>
