@@ -19,68 +19,44 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title text-center">Ordenar Números</h3>
-                        <div id="a1">
+                        <div>
                             <div class="mb-3">
                                 <label for="num" class="form-label">Insira os números</label>
                                 <input id="num" type="text" class="form-control" placeholder="Digite o número">
                             </div>
-                            <button id="b1" onclick="inserir()" class="btn btn-primary">Gravar</button>
+                            <button onclick="inserir()" class="btn btn-primary">Gravar</button>
                         </div>
                         <hr>
-                        <div id="a2">
+                        <div>
                             <div>
                                 <button onclick="listarEmSequencia()" class="btn btn-success">Listar em Sequencia</button>
+                                <button onclick="listarDescrescente()" class="btn btn-danger">Listar em ordem decrescente</button>
                             </div>
                             <ul class="list-group mt-3" id="numerosOrdenados"></ul>
                         </div>
+                        <hr>
+                        <div>
+                            <label>Digite o valor que você deseja buscar</label>
+                            <input id="numero1" type="number" class="form-control" placeholder="Digite aqui">
+                            <button onclick="posicaoArray()" class="btn btn-primary mt-2">Verificar a posição do item</button>
+                            <div class="imprimirPosicao mt-2"></div>
+                        </div>
+                        <hr>
+                        <div>
+                            <label>Digite qual numero deseja excluir</label>
+                            <input id="numeroExcluir" type="number" class="form-control" placeholder="Digite aqui">
+                            <button onclick="excluir()" class="btn btn-danger mt-2">Excluir</button>
+                            <div class="excluirImprimir mt-2"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div id="a3">
-            <div>
-                <button onclick="listarDescrescente()">Listar em ordem descrescente</button>
-            </div>
-    
-            <ul>
-                <li></li>
-            </ul>
-        </div>
-    
-        <div id="d1">
-            <div>
-                <div id="a4">
-                    <div>
-                        <label>Digite o valor que você deseja buscar</label>
-                        <input id="numero1" type="number" placeholder="Digite aqui">
-                    </div>
-                </div>
-            </div>
-            <button onclick="posicaoArray()">Verificar a posição do item</button>
-            <div class="imprimirPosicao">
-                        
-            </div>
-        </div>
-        
-    
-        <div id="principalExcluir">
-            <div>
-                <label>Digite qual numero deseja excluir</label>
-                <input id="numeroExcluir" type="number" placeholder="Digite aqui">
-            </div>
-            <div>
-                <button onclick="excluir()">Excluir</button>
-            </div>
-    
-            <div class="excluirImprimir">
-    
             </div>
         </div>
     </div>
     
     <script>
 
-        let numeros = [];
+        let numeros = [8, 2, 25, 31, 5, 18, 1];
 
         function inserir(){
 
@@ -130,7 +106,7 @@
                     }
                 }
                 console.log(numeros)
-                document.getElementsByTagName('li')[0].innerHTML = numeros
+                document.getElementsByTagName('ul')[0].innerHTML = numeros
             }
 
         function posicaoArray(){
@@ -162,10 +138,6 @@
         }
               
     </script>
-    
-
-</body>
-</html>
     
 
 </body>
