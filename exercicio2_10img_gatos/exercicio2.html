@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    #fotos img{
+        width: 300px;
+        height: 300px;
+    }
+</style>
+<body>
+
+    <div>
+        <h2 class="fst-italic text-center">Clique no botão para gerar 10 imagens aleatórias de gatos</h2>
+    </div>
+
+    <div>
+        <button class="btn btn-primary btn-lg" onclick="gerarImagem()">Gerar Imagem</button>
+        <div  id="fotos">
+                
+        </div>
+
+    </div>
+
+    <script>
+
+        function gerarImagem(){
+
+            let imagemImprimir = document.getElementById('fotos')
+
+            for(let i = 0; i < 10; i++){
+                fetch(`https://api.thecatapi.com/v1/images/search?limit=10`)
+
+                .then((img) => img.json())
+                .then((response) => {
+                imagemImprimir.innerHTML += `<img src=${response[i].url}>`
+            })
+            }
+        }
+
+    </script>
+</body>
+</html>
