@@ -1,69 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Document</title>
 </head>
-<body>
-    <h1>Compra de Produtos</h1>
+<style>
+    button {
+        padding: 5px 10px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
 
-    <div id="a1">
-        <div>
-            <label>Insira o nome do produto</label>
-            <input id="nome" type="text" placeholder="Digite aqui">
+<body class="bg-dark-subtle">
+    <div class="container mt-5">
+        <h1 class="mb-4">Loja de produtos</h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="produto">Insira o nome do produto</label>
+                    <input id="produto" class="form-control" type="text" placeholder="Digite aqui">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="valor">Insira o valor do produto</label>
+                    <input id="valor" class="form-control" type="number" placeholder="Digite aqui">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="quantidade">Insira a quantidade que você deseja adquirir</label>
+                    <input id="quantidade" class="form-control" type="number" placeholder="Digite aqui">
+                </div>
+            </div>
         </div>
-        
-        <div>
-            <label>Insira o valor do produto</label>
-            <input id="valor" type="text" placeholder="Digite aqui">
-        </div>
 
-        <div>
-            <label>Insira a quantidade que você deseja adquirir</label>
-            <input id="quantidade" type="text" placeholder="Digite aqui">
-        </div>
+        <button class="btn btn-primary" onclick="gravar()">Gravar cadastro</button>
+        <button class="btn btn-success" onclick="listar()">Listar na tabela</button>
+        <button id="btn1" style="display:none" class="btn btn-warning" onclick="edicao()">Gravar edição</button>
+
+        <button id="btn2" class="btn btn-dark" onclick="finalizarCompra()">Finalizar a compra</button>
+
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Valor</th>
+                    <th>Quantidade</th>
+                    <th>Valor Total</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaCorpo">
+            </tbody>
+        </table>
     </div>
-
-    <div>
-        <button onclick="gravar()">Gravar cadastro</button>
-    </div>
-
-    <div>
-        <button onclick="edicao()">Gravar edição</button>
-    </div>
+</body>
 
 
-    <script>
+<script>
 
-        let cadastro = []
+    let cadastro = []
+    let cadastroAlterado = {}
 
-        let cadastroAlterado = {}
+    function gravar() {
 
-        function gravar(){
+        let produto = document.getElementById('produto').value
+        let valor = document.getElementById('valor').value
+        let quantidade = document.getElementById('quantidade').value
 
-            let nome = document.getElementById('nome').value
-
-            let valor = document.getElementById('valor').value
-
-            let qtde = document.getElementById('quantidade').value
-
-            let cadastroCompleto = {
-
-                produto: nome,
-                valor: valor,
-                quantidade: qtde,
-            }
-
-            cadastro.push(cadastroCompleto)
-
+        if (produto == '' || valor == '' || quantidade == '') {
+            alert('Por favor, preencha todos os campos')
+            return
         }
 
+        let valorTotal = valor * quantidade
+
+        let cadastroCompleto = {
+
+            produto: produto,
+            valor: valor,
+            quantidade: quantidade,
+            valorTotal: valorTotal,
+        }
+
+        cadastro.push(cadastroCompleto)
+        console.log(cadastro)
+
+        document.getElementById('produto').value = ''
+        document.getElementById('valor').value = ''
+        document.getElementById('quantidade').value = ''
+
+    }
+
+    function listar() {
+
+        let itens = ''
+
+        for (let i = 0; i < cadastro.length; i++)
+
+            itens += `<tr><td>${cadastro[i].produto}</td><td>${cadastro[i].valor}</td><td>${cadastro[i].quantidade}</td><td>${cadastro[i].valorTotal}</td></tr><button onclick=excluir(${i})>Excluir</button><button onclick=editar(${i})>Editar</button>`
 
 
+        document.querySelector("tbody").innerHTML = itens
+    }
+    function excluir(i) {
 
+        cadastro.splice(i, 1)
 
-    </script>
+        listar()
+    }
+
+    function editar(i) {
+
+        console.log(cadastro)
+        console.log(cadastroAlterado)
+
+        cadastroAlterado = cadastro[i]
+        document.getElementById('produto').value = cadastroAlterado.produto
+        document.getElementById('valor').value = cadastroAlterado.valor
+        document.getElementById('quantidade').value = cadastroAlterado.quantidade
+
+        let btnEditarContatoNovo = document.getElementById('btn1')
+        btnEditarContatoNovo.style.display = "block"
+        btnEditarContatoNovo.onclick = function () {
+
+            FinalizarCadastro(i)
+        }
+    }
+
+    function FinalizarCadastro(i) {
+
+        cadastroAlterado.produto = document.getElementById('produto').value;
+        cadastroAlterado.valor = parseFloat(document.getElementById('valor').value);
+        cadastroAlterado.quantidade = parseInt(document.getElementById('quantidade').value);
+
+        cadastroAlterado.valorTotal = cadastroAlterado.valor * cadastroAlterado.quantidade;
+
+        let btnAtualizar = document.getElementById('btn1');
+        btnAtualizar.style.display = "none";
+
+        listar();
+    }
+
+    function finalizarCompra() {
+        let quantidadeTotal = 0;
+        let valorTotalCompra = 0;
+
+        for (let i = 0; i < cadastro.length; i++) {
+            quantidadeTotal += parseInt(cadastro[i].quantidade);
+            valorTotalCompra += cadastro[i].valorTotal;
+        }
+
+        alert(`Quantidade Total de Produtos: ${quantidadeTotal}\nValor Total da Compra: R$ ${valorTotalCompra.toFixed(2)}`);
+    }
+
+</script>
 
 </body>
+
 </html>
