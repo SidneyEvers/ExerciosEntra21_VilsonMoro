@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header text-center">Calculadora</div>
+                    <div class="card-body">
+                        <input type="text" id="display" class="form-control mb-2">
+                        <div class="row">
+                            <div class="col-3">
+                                <button onclick="inserir(this)" class="btn btn-secondary btn-block">7</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="inserir(this)" class="btn btn-secondary btn-block">8</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="inserir(this)" class="btn btn-secondary btn-block">9</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="definirOperacao(this)" class="btn btn-primary btn-block">+</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-3">
+                                <button onclick="inserir(this)" class="btn btn-secondary btn-block">4</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="inserir(this)" class="btn btn-secondary btn-block">5</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="inserir(this)" class="btn btn-secondary btn-block">6</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="definirOperacao(this)" class="btn btn-primary btn-block">-</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-3">
+                                <button onclick="inserir(this)" class="btn btn-secondary btn-block">1</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="inserir(this)" class="btn btn-secondary btn-block">2</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="inserir(this)" class="btn btn-secondary btn-block">3</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="definirOperacao(this)" class="btn btn-primary btn-block">*</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-3">
+                                <button onclick="inserir(this)" class="btn btn-secondary btn-block">0</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="calcular()" class="btn btn-success btn-block">=</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="limpar()" class="btn btn-danger btn-block">C</button>
+                            </div>
+                            <div class="col-3">
+                                <button onclick="definirOperacao(this)" class="btn btn-primary btn-block">/</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        var n1 = 0;
+        var n2 = 0;
+        var op = '';
+
+        function inserir(item) {
+            document.getElementById('display').value += item.innerHTML;
+        }
+
+        function definirOperacao(item) {
+            op = item.innerHTML;
+            let display = document.getElementById('display');
+            n1 = parseFloat(display.value);
+            display.value = '';
+        }
+
+        function calcular() {
+            let display = document.getElementById('display');
+            n2 = parseFloat(display.value);
+            let resultado = 0;
+
+            switch (op) {
+                case '+':
+                    resultado = n1 + n2;
+                    break;
+                case '-':
+                    resultado = n1 - n2;
+                    break;
+                case '/':
+                    resultado = n1 / n2;
+                    break;
+                case '*':
+                    resultado = n1 * n2;
+                    break;
+            }
+
+            display.value = resultado;
+        }
+
+        function limpar() {
+            document.getElementById('display').value = '';
+            n1 = 0;
+            n2 = 0;
+            op = '';
+        }
+
+    </script>
+
+</body>
+</html>
