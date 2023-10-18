@@ -29,15 +29,24 @@ tb_locais_id int,
 tb_contatos_id int 
 );
 
+
+alter table tb_compromissos add column tb_locais_id int;
+alter table tb_compromissos add constraint fk_locais foreign key(tb_locais_id) references tb_locais(id);
+
+
 alter table compromissos_has_contatos add constraint fk_test foreign key(tb_locais_id) references tb_locais(id);
 alter table compromissos_has_contatos add constraint fk_test2 foreign key(tb_contatos_id) references tb_contatos(id);
 
-alter table tb_compromissos drop column tb_locais_id;
+alter table compromissos_has_contatos add column tb_compromissos_id int;
+
+alter table compromissos_has_contatos add constraint fk_compromissos foreign key(tb_compromissos_id) references tb_compromissos(id);
+
+
+
+
 
 alter table tb_compromissos drop constraint fk_locais_id;
-
-
-
+ 
 alter table tb_compromissos add column tb_contatos_id int;
 alter table tb_compromissos add constraint fk_contatos foreign key(tb_contatos_id) references tb_contatos(id);
 
