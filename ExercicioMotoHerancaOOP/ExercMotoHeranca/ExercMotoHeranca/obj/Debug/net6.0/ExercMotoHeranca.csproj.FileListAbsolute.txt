@@ -1,0 +1,15 @@
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\bin\Debug\net6.0\ExercMotoHeranca.exe
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\bin\Debug\net6.0\ExercMotoHeranca.deps.json
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\bin\Debug\net6.0\ExercMotoHeranca.runtimeconfig.json
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\bin\Debug\net6.0\ExercMotoHeranca.dll
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\bin\Debug\net6.0\ExercMotoHeranca.pdb
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\obj\Debug\net6.0\ExercMotoHeranca.csproj.AssemblyReference.cache
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\obj\Debug\net6.0\ExercMotoHeranca.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\obj\Debug\net6.0\ExercMotoHeranca.AssemblyInfoInputs.cache
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\obj\Debug\net6.0\ExercMotoHeranca.AssemblyInfo.cs
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\obj\Debug\net6.0\ExercMotoHeranca.csproj.CoreCompileInputs.cache
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\obj\Debug\net6.0\ExercMotoHeranca.dll
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\obj\Debug\net6.0\refint\ExercMotoHeranca.dll
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\obj\Debug\net6.0\ExercMotoHeranca.pdb
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\obj\Debug\net6.0\ExercMotoHeranca.genruntimeconfig.cache
+C:\Users\sidney.zuanazzi\source\repos\ExercMotoHeranca\ExercMotoHeranca\obj\Debug\net6.0\ref\ExercMotoHeranca.dll
