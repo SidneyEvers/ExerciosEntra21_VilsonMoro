@@ -1,0 +1,15 @@
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\bin\Debug\net6.0\ExercicioLinkedList.exe
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\bin\Debug\net6.0\ExercicioLinkedList.deps.json
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\bin\Debug\net6.0\ExercicioLinkedList.runtimeconfig.json
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\bin\Debug\net6.0\ExercicioLinkedList.dll
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\bin\Debug\net6.0\ExercicioLinkedList.pdb
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\obj\Debug\net6.0\ExercicioLinkedList.csproj.AssemblyReference.cache
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\obj\Debug\net6.0\ExercicioLinkedList.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\obj\Debug\net6.0\ExercicioLinkedList.AssemblyInfoInputs.cache
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\obj\Debug\net6.0\ExercicioLinkedList.AssemblyInfo.cs
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\obj\Debug\net6.0\ExercicioLinkedList.csproj.CoreCompileInputs.cache
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\obj\Debug\net6.0\ExercicioLinkedList.dll
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\obj\Debug\net6.0\refint\ExercicioLinkedList.dll
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\obj\Debug\net6.0\ExercicioLinkedList.pdb
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\obj\Debug\net6.0\ExercicioLinkedList.genruntimeconfig.cache
+C:\Users\sidney.zuanazzi\source\repos\ExercicioLinkedList\ExercicioLinkedList\obj\Debug\net6.0\ref\ExercicioLinkedList.dll
