@@ -8,7 +8,7 @@ namespace ExercicioLinkedList
         static void Main(string[] args)
         {
             //exercicio1();
-            exercicio2();
+            //exercicio2();
             exercicio3();
             Console.ReadKey();
 
@@ -44,9 +44,16 @@ namespace ExercicioLinkedList
             //produtos da respectiva categoria.
 
             List<Produtos> produtos = new();
-            
-            
+            Produtos produto = new("Coca-Cola");
+            Produtos produto2 = new("Guaraná");
+            produtos.Add(produto);
+            produtos.Add(produto2);
+
             CategoriaProduto bebidas = new(1, "bebidas");
+
+            bebidas.AdicionarProdutoNaLista(bebidas, produtos);
+            bebidas.MostrarProdutoNaLista(produtos);
+            
 
 
 
