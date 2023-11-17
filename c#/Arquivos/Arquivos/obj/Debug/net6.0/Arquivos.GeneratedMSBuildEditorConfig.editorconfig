@@ -7,5 +7,5 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = ExercicioLinkedList
-build_property.ProjectDir = C:\Users\sidney.zuanazzi\Source\Repos\ExerciciosEntra21-Vilson\ExercicioLinkedList_08_11\ExercicioLinkedList\ExercicioLinkedList\
+build_property.RootNamespace = Arquivos
+build_property.ProjectDir = C:\Users\sidney.zuanazzi\Source\Repos\ExerciciosEntra21-Vilson\c#\Arquivos\Arquivos\
