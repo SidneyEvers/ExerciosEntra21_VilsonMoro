@@ -1,10 +1,11 @@
-﻿using Desafio_Loja_Aula49.Models;
+﻿using Desafio_Loja_Aula49.Interfaces;
+using Desafio_Loja_Aula49.Models;
 using Microsoft.Data.SqlClient;
 using System.Data;
 
 namespace Desafio_Loja_Aula49.dao;
 
-internal class daoCategoria
+internal class daoCategoria : ICrud<Categoria>
 {
     public bool salvar(Categoria categoria)
     {
@@ -30,7 +31,6 @@ internal class daoCategoria
             return cn.ExecuteNonQuery() > 0;
         }
     }
-
     public void listar()
     {
         using (SqlConnection con = new SqlConnection())
@@ -58,8 +58,7 @@ internal class daoCategoria
             }
         }
     }
-
-    public void editar(string descricao, int categoria)
+    public void editar(Categoria categoria)
     {
         using (SqlConnection con = new SqlConnection())
         {
@@ -71,8 +70,8 @@ internal class daoCategoria
             cn.CommandType = CommandType.Text;
             cn.CommandText = "update tb_categoria set descricao = @descricao where id = @id";
 
-            cn.Parameters.AddWithValue("@descricao", descricao);
-            cn.Parameters.AddWithValue("@id", categoria);
+            cn.Parameters.AddWithValue("@id", categoria.Id);
+            cn.Parameters.AddWithValue("@descricao", categoria.Descricao);
 
             cn.Connection = con;
 

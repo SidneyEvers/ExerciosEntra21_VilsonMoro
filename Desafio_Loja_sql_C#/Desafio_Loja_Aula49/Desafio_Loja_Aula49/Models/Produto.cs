@@ -20,4 +20,9 @@ internal class Produto
         Valor = valor;
         Categoria = categoria;
     }
+
+    public string ToString()
+    {
+        return $"Id: {Id} | Nome: {Descricao} | Quantidade: {Quantidade} | Valor: R${Valor}";
+    }
 }

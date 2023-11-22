@@ -8,23 +8,37 @@ namespace Desafio_Loja_Aula49
     {
         static void Main(string[] args)
         {
-            MenuProdutos();
-            //MenuCategorias();
+            MenuGeral();
             Console.ReadKey();
+        }
+        static void MenuGeral()
+        {
+            Console.WriteLine("Esolha uma das opções: (1) para manipular Produtos, e (2) para manipular Categorias");
+            int escolhaMenu = Convert.ToInt32(Console.ReadLine());
+
+            if(escolhaMenu == 1)
+            {
+                MenuProdutos();
+            }
+            else if(escolhaMenu == 2)
+            {
+                MenuCategorias();
+            }
         }
         static void MenuProdutos()
         {
-            Console.WriteLine("Escolha opção (1) para Adicionar, (2) para Listar, (3) para Editar, (4) para Excluir");
+            Console.WriteLine("Escolha opção (1) para Adicionar um produto, (2) para Listar os produtos, (3) para Editar um produto, (4) para Excluir");
             int escolhaMenu = Convert.ToInt32(Console.ReadLine());
 
             if (escolhaMenu == 1)
             {
                 SalvarProduto();
             }
-            /*else if (escolhaMenu == 2)
+            else if (escolhaMenu == 2)
             {
                 ListarProduto();
             }
+            
             else if (escolhaMenu == 3)
             {
                 EditarProduto();
@@ -32,7 +46,30 @@ namespace Desafio_Loja_Aula49
             else if (escolhaMenu == 4)
             {
                 ExcluirProduto();
-            }*/
+            }
+        }
+        static void ExcluirProduto()
+        {
+            Console.WriteLine("Digite o Id do produto que deseja excluir: ");
+            int excluirId = Convert.ToInt32(Console.ReadLine());
+
+            daoProduto daoProduto = new();
+
+            daoProduto.excluir(excluirId);
+            ListarProduto();
+        }
+        static void ListarProduto()
+        {
+            daoProduto daoProduto = new();
+
+            daoProduto.listar();
+
+
+            Console.WriteLine("Para sair digite qualquer tecla");
+            Console.ReadKey();
+            Console.Clear();
+            MenuProdutos();
+            
         }
         static void ListarCategoriasparaProdutos()
         {
@@ -40,7 +77,32 @@ namespace Desafio_Loja_Aula49
 
             daoCategorias.listar();
         }
-            static void SalvarProduto()
+        static void EditarProduto()
+        {
+            Console.WriteLine("Digite o Id do produto que deseja editar: ");
+            int idProduto = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Digite o novo nome do produto: ");
+            string novoNome = Console.ReadLine();
+
+            Console.WriteLine("Digite a quantidade: ");
+            int novaQtde = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Digite o novo valor: ");
+            float novoValor = Convert.ToSingle(Console.ReadLine());
+
+            Console.WriteLine("Digite a nova categoria: ");
+            int novaCategoria = Convert.ToInt32(Console.ReadLine());
+
+            daoProduto daoProduto = new();
+            Produto produto = new(idProduto, novoNome, novaQtde, novoValor, novaCategoria);
+
+            daoProduto.editar(produto);
+
+            ListarProduto();
+            MenuProdutos();
+        }
+        static void SalvarProduto()
         {
             Produto produto = new();
 
@@ -78,6 +140,7 @@ namespace Desafio_Loja_Aula49
             }
             else if(x2 == 2)
             {
+                Console.Clear();
                 MenuProdutos();
             }
         }
@@ -103,7 +166,6 @@ namespace Desafio_Loja_Aula49
                 ExcluirCategoria();
             }
         }
-
         static void SalvarCategorias()
         {
             Categoria categoria = new Categoria();
@@ -157,8 +219,9 @@ namespace Desafio_Loja_Aula49
             string novoNome = Console.ReadLine();
 
             daoCategoria daoCategoria = new();
+            Categoria categoria = new(escolhaCategoria, novoNome);
 
-            daoCategoria.editar(novoNome, escolhaCategoria);
+            daoCategoria.editar(categoria);
 
             ListarCategorias();
         }
@@ -175,5 +238,4 @@ namespace Desafio_Loja_Aula49
 
         }
     }
-        
 }

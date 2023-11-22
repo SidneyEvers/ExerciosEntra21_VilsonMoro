@@ -24,7 +24,7 @@ internal class Categoria
 
     public string ToString()
     {
-        return $"{Id} {Descricao}";
+        return $"Id: {Id} | Descrição: {Descricao}";
     }
 
 }
