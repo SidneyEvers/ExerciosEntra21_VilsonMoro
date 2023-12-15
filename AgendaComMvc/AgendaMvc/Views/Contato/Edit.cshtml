@@ -1,0 +1,21 @@
+﻿@model AgendaMvc.Models.Contato
+@{
+    ViewData["Title"] = "Editar";
+}
+<h1>Editar</h1>
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-control" asp-for="Nome">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" asp-for="Email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Telefone</label>
+        <input type="text" class="form-control" asp-for="Telefone">
+    </div>
+
+    <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Contato" asp-action="Edit">Editar</button>
+</form>

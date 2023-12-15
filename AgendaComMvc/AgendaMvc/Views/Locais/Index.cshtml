@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AgendaMvc.Models.Locais>
+@{
+    ViewData["Title"] = "Locais";
+}
+<h1>@ViewData["title"]</h1>
+<form>
+<table class="table">
+    <thead>
+        <tr>
+            <th> <button type="submit" class="btn btn-secondary" asp-area="" asp-controller="Locais" asp-action="Create">Criar</button></th>
+        </tr>
+    </thead>
+</table>
+
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+            <th>@Html.DisplayNameFor(model => model.Rua)</th>
+            <th>@Html.DisplayNameFor(model => model.Numero)</th>
+            <th>@Html.DisplayNameFor(model => model.Cidade)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.Id)</td>
+                <td>@Html.DisplayFor(model => item.Descricao)</td>
+                <td>@Html.DisplayFor(model => item.Rua)</td>
+                <td>@Html.DisplayFor(model => item.Numero)</td>
+                <td>@Html.DisplayFor(model => item.Cidade)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id }) |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

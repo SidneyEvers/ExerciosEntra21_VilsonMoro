@@ -1,0 +1,77 @@
+﻿@model X.PagedList.IPagedList<AgendaMvc.Models.Contato>
+@using X.PagedList.Mvc.Bootstrap4;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewData["title"] = "Contato";
+}
+    
+<h1>@ViewData["title"]</h1>
+<form>
+<table class="table">
+    <thead>
+        <tr>
+            <th> <button type="submit" class="btn btn-secondary" asp-area="" asp-controller="Contato" asp-action="Create">Criar</button></th>
+        </tr>
+    </thead>
+</table>
+
+    @using (Html.BeginForm())
+    {
+        <p>
+            Pesquisar pelo nome: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+</form>
+<table class="table">
+<thead>
+       
+        <tr>
+        <th>Id</th>
+            <th>
+                @Html.ActionLink("Nome", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+        <th>Email</th>
+        <th>Telefone</th>
+    </tr>
+</thead>
+<tbody>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.Id)</td>
+            <td>@Html.DisplayFor(model => item.Nome)</td>
+            <td>@Html.DisplayFor(model => item.Email)</td>
+            <td>@Html.DisplayFor(model => item.Telefone)</td>
+            <td>   
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id }) |
+            </td>    
+        </tr>
+    }
+</tbody>
+    </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
+@Html.PagedListPager(
+        Model,
+        page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }),
+        new PagedListRenderOptions
+    {
+        FunctionToTransformEachPageLink = (liTag, aTag) =>
+        {
+            aTag.Attributes.Add("class", "page-link");
+            return liTag;
+        },
+        LiElementClasses = new[] { "page-item" },
+        UlElementClasses = new[] { "pagination justify-content-center" }
+    }
+    )

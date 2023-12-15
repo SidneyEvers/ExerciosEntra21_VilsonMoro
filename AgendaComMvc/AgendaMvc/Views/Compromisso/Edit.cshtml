@@ -1,0 +1,25 @@
+﻿@model AgendaMvc.Models.Compromisso
+@{
+    ViewData["Title"] = "Editar";
+}
+<h1>Editar</h1>
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-control" asp-for="Descricao">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" asp-for="Data">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Telefone</label>
+        <input type="text" class="form-control" asp-for="Contato">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Telefone</label>
+        <input type="text" class="form-control" asp-for="Local">
+    </div>
+
+    <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Compromisso" asp-action="Edit">Editar</button>
+</form>
