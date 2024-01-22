@@ -25,7 +25,6 @@ namespace LojaAPI_Simplificada.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -56,6 +55,29 @@ namespace LojaAPI_Simplificada.Migrations
                     b.HasIndex("CategoriaId");
 
                     b.ToTable("Produtos_Table");
+                });
+
+            modelBuilder.Entity("LojaAPI_Simplificada.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("usuarios_Table");
                 });
 
             modelBuilder.Entity("LojaAPI_Simplificada.Entities.Produtos", b =>

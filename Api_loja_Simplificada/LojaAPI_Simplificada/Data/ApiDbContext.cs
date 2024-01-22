@@ -10,5 +10,6 @@ public class ApiDbContext : DbContext
     }
     public DbSet<Categoria> Categorias_Tables { get; set; }
     public DbSet<Produtos> Produtos_Table { get; set; }
+    public DbSet<User> usuarios_Table { get; set; }
 
 }

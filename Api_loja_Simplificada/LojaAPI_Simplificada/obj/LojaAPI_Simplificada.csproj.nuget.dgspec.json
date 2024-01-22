@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sidney.zuanazzi\\Source\\Repos\\ExerciosEntra21_VilsonMoro\\Loja_Api_Simplificada\\LojaAPI_Simplificada\\LojaAPI_Simplificada.csproj": {}
+    "C:\\Users\\sidney.zuanazzi\\source\\repos\\ExerciosEntra21_VilsonMoro\\Api_loja_Simplificada\\LojaAPI_Simplificada\\LojaAPI_Simplificada.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sidney.zuanazzi\\Source\\Repos\\ExerciosEntra21_VilsonMoro\\Loja_Api_Simplificada\\LojaAPI_Simplificada\\LojaAPI_Simplificada.csproj": {
+    "C:\\Users\\sidney.zuanazzi\\source\\repos\\ExerciosEntra21_VilsonMoro\\Api_loja_Simplificada\\LojaAPI_Simplificada\\LojaAPI_Simplificada.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sidney.zuanazzi\\Source\\Repos\\ExerciosEntra21_VilsonMoro\\Loja_Api_Simplificada\\LojaAPI_Simplificada\\LojaAPI_Simplificada.csproj",
+        "projectUniqueName": "C:\\Users\\sidney.zuanazzi\\source\\repos\\ExerciosEntra21_VilsonMoro\\Api_loja_Simplificada\\LojaAPI_Simplificada\\LojaAPI_Simplificada.csproj",
         "projectName": "LojaAPI_Simplificada",
-        "projectPath": "C:\\Users\\sidney.zuanazzi\\Source\\Repos\\ExerciosEntra21_VilsonMoro\\Loja_Api_Simplificada\\LojaAPI_Simplificada\\LojaAPI_Simplificada.csproj",
+        "projectPath": "C:\\Users\\sidney.zuanazzi\\source\\repos\\ExerciosEntra21_VilsonMoro\\Api_loja_Simplificada\\LojaAPI_Simplificada\\LojaAPI_Simplificada.csproj",
         "packagesPath": "C:\\Users\\sidney.zuanazzi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sidney.zuanazzi\\Source\\Repos\\ExerciosEntra21_VilsonMoro\\Loja_Api_Simplificada\\LojaAPI_Simplificada\\obj\\",
+        "outputPath": "C:\\Users\\sidney.zuanazzi\\source\\repos\\ExerciosEntra21_VilsonMoro\\Api_loja_Simplificada\\LojaAPI_Simplificada\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sidney.zuanazzi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"
