@@ -7,40 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container mt-4">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Ações</th>
-                <a  href="/adicionar.html" class="btn btn-primary" href="/adicionar.html">Adicionar</a>
-              </tr>
-            </thead>
-            <tbody onload="Listar()">
-            </tbody>
-        </table>
-    </div>
-    
-    
+    <h1>Bem vindo a loja API </h1>
+    <h3>Clique o que deseja</h3>
 
+    <a href="/Front_End_API_Loja/Consumir_API/listar.html" type="button" class="btn btn-primary">Litar Produtos</a>
 
+    <a href="/Front_End_API_Loja/Consumir_API/adicionar.html" type="button" class="btn btn-primary">Adicionar Produtos</a>
 
-    <script>
-        
-        window.onload =function Listar(){
-            linha = ''
-            tabela = document.getElementsByTagName("tbody")[0]
-            tabela.innerHTML = ""
-            fetch('https://localhost:7051/api/categorias')
-            .then(dados => dados.json())
-            .then(response => {
-                    response.forEach(element => {
-                    linha = `<tr><td>${element.id}</td><td>${element.nome}</td></tr>`
-                    tabela.innerHTML += linha
-                });
-            })
-        }
-    </script>
 </body>
 </html>
