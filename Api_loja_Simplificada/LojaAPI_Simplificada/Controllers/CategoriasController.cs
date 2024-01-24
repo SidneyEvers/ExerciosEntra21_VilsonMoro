@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LojaAPI_Simplificada.Data;
 using LojaAPI_Simplificada.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LojaAPI_Simplificada.Controllers
 {
@@ -23,6 +24,7 @@ namespace LojaAPI_Simplificada.Controllers
 
         // GET: api/Categorias
         [HttpGet]
+        [Authorize(Roles ="empregado, gerente, admin")]
         public async Task<ActionResult<IEnumerable<Categoria>>> GetCategorias_Tables()
         {
           
@@ -48,8 +50,8 @@ namespace LojaAPI_Simplificada.Controllers
         }
 
         // PUT: api/Categorias/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles ="gerente,admin")]
         public async Task<IActionResult> PutCategoria(int id, Categoria categoria)
         {
             if (id != categoria.Id)
@@ -79,8 +81,8 @@ namespace LojaAPI_Simplificada.Controllers
         }
 
         // POST: api/Categorias
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles ="gerente,admin")]
         public async Task<ActionResult<Categoria>> PostCategoria(Categoria categoria)
         {
             _context.Categorias_Tables.Add(categoria);
@@ -90,7 +92,7 @@ namespace LojaAPI_Simplificada.Controllers
         }
 
         // DELETE: api/Categorias/5
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteCategoria(int id)
         {
             var categoria = await _context.Categorias_Tables.FindAsync(id);
