@@ -28,7 +28,7 @@
                     <a class="nav-link" href="/Front_End_API_Loja/Consumir_API/Categorias/listar.html">Categoria</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="/Front_End_API_Loja/Consumir_API/Usuarios/listarUsuarios.html">Login</a>
                   </li>
                 </ul>
               </div>
@@ -42,24 +42,63 @@
     </div>
     <div style="display: flex" >
         <div id="a1" style="margin-left: 115px;" class="container mt-2">
-            <form>
+           
                 <div class="mb-3">
                 <label for="inputEmail" class="form-label">E-mail</label>
                 <input style="width: 300px;" type="email" class="form-control" id="inputEmail" >
                 </div>
                 <div class="mb-3">
                 <label for="inputPassword" class="form-label">Senha</label>
-                <input style="width: 300px;" type="password" class="form-control" id="inputPassword">
+                <input style="width: 300px;" type="password" class="form-control" id="inputPassword" value="123456">
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
+                <button type="submit" onclick="Logar()" class="btn btn-primary">Enviar</button>
+            
         </div>
         <div class="container">
             <h4>Ainda não possui conta? Faça seu cadastro aqui!</h4>
-            <a type="button" class="btn btn-primary" href="">Clique Aqui</a>
+            <a type="button" href="/Front_End_API_Loja/Consumir_API/Usuarios/adicionarLogin.html" class="btn btn-primary" href="">Clique Aqui</a>
         </div>
     </div>
 
+
+    <script>
+      async function Logar(){
+
+            let inputUsuario = document.getElementById('inputEmail').value
+            let senhaInput = document.getElementById('inputPassword').value
+
+            let obj = {
+                username: inputUsuario,
+                password: senhaInput
+            }
+
+            try 
+            {
+                fetch("https://localhost:7051/api/Users/login",{
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(obj)
+                }
+                )
+                .then(data => data.json())
+                .then(response => { 
+                    localStorage.setItem('token', response.token)
+                    console.log(response)
+                   // window.location.href = 'inicial.html'
+                })
+
+              /*  let usuarioLogado = localStorage.getItem('token')
+                if(usuarioLogado != null){
+                    window.location.href = '/usuarios/inicial.html'
+                }*/
+            }
+            catch(error){
+             console.log(error)
+            }
+        }
+    </script>
 
 </body>
 </html>

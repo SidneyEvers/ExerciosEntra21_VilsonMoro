@@ -16,21 +16,38 @@
         <div class="container">
             <h2>Excluir categoria</h2>
         </div>
-        <div style="margin-left: 10px;">
-            <label class="form-label" for="inputExcluir">Digite o Id da categoria que deseja excluir</label>
-            <input type="text" style="width: 300px;" class="form-control" id="inputExcluir" placeholder="informe aqui">
-            <button style="margin-top: 5px;" type="button" onclick="Excluir()" class="btn btn-danger">Confirmar</button>
-            <a type="button" style="margin-top: 5px;" href="/Front_End_API_Loja/Consumir_API/Categorias/listar.html" class="btn btn-success">Cancelar</a>
-        </div>
+    
+            <div style="margin-left: 10px;">
+                <label class="form-label" for="inputExcluir">Deseja realmente excluir essa categoria?</label>
+                <input type="text" style="width: 300px;" class="form-control" id="inputExcluir" placeholder="informe aqui">
+                <tbody onload="listar()">
+                </tbody>
+                <button style="margin-top: 5px;" type="submit" onclick="Excluir(id)" class="btn btn-danger">Confirmar</button>
+                <a type="button" style="margin-top: 5px;" href="/Front_End_API_Loja/Consumir_API/Categorias/listar.html" class="btn btn-success">Cancelar</a>
+            </div>
+
     </div>
 
 
 
     <script>
+         const params = new URLSearchParams(window.location.search)
+         
         async function Excluir(){
-            let inputExcluir = document.getElementById('inputExcluir').value
-
+            let excluirInput = document.getElementById('inputExcluir').value
             
+             var obj =
+             {
+                id : excluirInput
+             }
+
+            await fetch(`https://localhost:7051/api/Categorias/delete/${params.get('id')}`,
+            {
+                method: "DELETE",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(obj)
+            }
+            )
         }
     </script>
 </body>

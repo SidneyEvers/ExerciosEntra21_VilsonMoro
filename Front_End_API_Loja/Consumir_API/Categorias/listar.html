@@ -40,7 +40,6 @@
             <tbody onload="Listar()">
             </tbody>
         </table>
-        <a href="/Front_End_API_Loja/Consumir_API/Categorias/editar.html"></a>
     </div>
     
     <script>
@@ -49,14 +48,23 @@
             linha = ''
             tabela = document.getElementsByTagName("tbody")[0]
             tabela.innerHTML = ""
-            fetch('https://localhost:7051/api/categorias')
+            const token = localStorage.getItem('token')
+
+            fetch('https://localhost:7051/api/categorias',{
+                method: "GET",
+                headers:{
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+            })
             .then(dados => dados.json())
             .then(response => {
                     response.forEach(element => {
-                    linha = `<tr><td>${element.id}</td><td>${element.nome}</td><td><a type="button" href="/Front_End_API_Loja/Consumir_API/Categorias/excluir.html"class="btn btn-danger"(${element})>Excluir</a><a type="button" href="/Front_End_API_Loja/Consumir_API/Categorias/editar.html" class="btn btn-success" style="margin-left: 5px"(${element})>Editar</a></td></tr>`
+                    linha = `<tr><td>${element.id}</td><td>${element.nome}</td><td><a type="button" href="/Front_End_API_Loja/Consumir_API/Categorias/excluir.html?id=${element.id}"class="btn btn-danger">Excluir</a><a type="button" href="/Front_End_API_Loja/Consumir_API/Categorias/editar.html" class="btn btn-success" style="margin-left: 5px">Editar</a></td></tr>`
                     tabela.innerHTML += linha
                 });
             })
+            
         }
     </script>
 </body>
