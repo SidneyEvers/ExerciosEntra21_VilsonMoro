@@ -19,7 +19,7 @@
         <div style="margin-left: 10px;">
             <label class="form-label" for="inputExcluir">Digite o Id da categoria que deseja excluir</label>
             <input type="text" style="width: 300px;" class="form-control" id="inputExcluir" placeholder="informe aqui">
-            <button style="margin-top: 5px;" type="button" class="btn btn-danger">Confirmar</button>
+            <button style="margin-top: 5px;" type="button" onclick="Excluir()" class="btn btn-danger">Confirmar</button>
             <a type="button" style="margin-top: 5px;" href="/Front_End_API_Loja/Consumir_API/Categorias/listar.html" class="btn btn-success">Cancelar</a>
         </div>
     </div>
@@ -27,6 +27,11 @@
 
 
     <script>
+        async function Excluir(){
+            let inputExcluir = document.getElementById('inputExcluir').value
+
+            
+        }
     </script>
 </body>
 </html>
