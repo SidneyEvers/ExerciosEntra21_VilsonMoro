@@ -104,8 +104,7 @@ namespace LojaAPI_Simplificada.Controllers
         }
 
         // PUT: api/Produtos/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("editar/{id}")]
         [Authorize(Roles ="gerente,admin")]
         public async Task<IActionResult> PutProdutos(int id, Produtos produtos)
         {
@@ -152,7 +151,7 @@ namespace LojaAPI_Simplificada.Controllers
         }
 
         // DELETE: api/Produtos/5
-        [HttpDelete("/delete/{id}")]
+        [HttpDelete("{id}")]
         [Authorize(Roles ="admin")]
         public async Task<IActionResult> DeleteProdutos(int id)
         {

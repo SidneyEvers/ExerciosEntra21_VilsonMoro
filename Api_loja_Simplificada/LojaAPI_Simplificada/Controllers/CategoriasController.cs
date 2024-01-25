@@ -92,7 +92,7 @@ namespace LojaAPI_Simplificada.Controllers
         }
 
         // DELETE: api/Categorias/5
-        [HttpDelete("delete/{id}")]
+        [HttpDelete("{id}")]
         [Authorize(Roles ="admin")]
         public async Task<IActionResult> DeleteCategoria(int id)
         {
