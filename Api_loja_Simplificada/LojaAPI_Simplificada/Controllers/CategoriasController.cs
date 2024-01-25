@@ -82,7 +82,7 @@ namespace LojaAPI_Simplificada.Controllers
 
         // POST: api/Categorias
         [HttpPost]
-        [Authorize(Roles ="gerente,admin")]
+        [Authorize(Roles ="empregado,admin")]
         public async Task<ActionResult<Categoria>> PostCategoria(Categoria categoria)
         {
             _context.Categorias_Tables.Add(categoria);
@@ -93,6 +93,7 @@ namespace LojaAPI_Simplificada.Controllers
 
         // DELETE: api/Categorias/5
         [HttpDelete("delete/{id}")]
+        [Authorize(Roles ="admin")]
         public async Task<IActionResult> DeleteCategoria(int id)
         {
             var categoria = await _context.Categorias_Tables.FindAsync(id);

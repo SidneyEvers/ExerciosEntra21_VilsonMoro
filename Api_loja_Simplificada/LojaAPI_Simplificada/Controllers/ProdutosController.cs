@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LojaAPI_Simplificada.Data;
 using LojaAPI_Simplificada.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LojaAPI_Simplificada.Controllers
 {
@@ -54,8 +55,9 @@ namespace LojaAPI_Simplificada.Controllers
             return produtos;
         }
 
-        // GET: api/Produtoes
+        // GET: api/Produtos
         [HttpGet]
+        [Authorize(Roles = "empregado,gerente,admin")]
         public async Task<ActionResult<IEnumerable<Produtos>>> GetProdutos()
         {
             List<Produtos> produtos = await _context.Produtos_Table.ToListAsync();
@@ -104,6 +106,7 @@ namespace LojaAPI_Simplificada.Controllers
         // PUT: api/Produtos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles ="gerente,admin")]
         public async Task<IActionResult> PutProdutos(int id, Produtos produtos)
         {
             if (id != produtos.Id)
@@ -133,8 +136,8 @@ namespace LojaAPI_Simplificada.Controllers
         }
 
         // POST: api/Produtos
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles ="empregado,admin")]
         public async Task<ActionResult<Produtos>> PostProdutos(Produtos produtos)
         {
             produtos.CategoriaId = produtos.Categoria.Id;
@@ -149,7 +152,8 @@ namespace LojaAPI_Simplificada.Controllers
         }
 
         // DELETE: api/Produtos/5
-        [HttpDelete("{id}")]
+        [HttpDelete("/delete/{id}")]
+        [Authorize(Roles ="admin")]
         public async Task<IActionResult> DeleteProdutos(int id)
         {
             if (_context.Produtos_Table == null)
