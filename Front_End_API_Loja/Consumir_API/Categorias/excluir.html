@@ -31,8 +31,8 @@
 
 
     <script>
-        async function Excluir(){
-            let excluirInput = document.getElementById('inputExcluir').value
+        function Excluir(){
+            const excluirInput = document.getElementById('inputExcluir').value
 
             var token = localStorage.getItem('token')
             
@@ -41,16 +41,15 @@
                 id : excluirInput
              }
 
-            await fetch(`https://localhost:7051/api/Categorias/delete/{id}`,
-            {
+             fetch(`https://localhost:7051/api/categorias/${excluirInput}`,{
                 method: "DELETE",
                 headers: {  
                   'Content-Type': 'application/json',
                   'Authorization': 'Bearer ' + token
-              },
-                body: JSON.stringify(obj)
-            }
-            )
+                },
+             })
+             .then(response => console.log(response.status))
+            .catch(error => console.error(error));
         }
     </script>
 </body>

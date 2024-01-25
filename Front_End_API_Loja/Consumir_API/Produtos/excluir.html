@@ -32,27 +32,26 @@
     <script>
         const params = new URLSearchParams(window.location.search)
         
-       async function Excluir(){
-           let excluirInput = document.getElementById('inputExcluir').value
+        function Excluir(){
+            const excluirInput = document.getElementById('inputExcluir').value
 
-           var token = localStorage.getItem('token')
-           
-            var obj =
-            {
-               id : excluirInput
-            }
-            console.log(obj)
-           await fetch(`https://localhost:7051/api/Produtos/delete/{id}`,
-           {
-               method: "DELETE",
-               headers: {  
-                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + token
-             },
-               body: JSON.stringify(obj)
-           }
-           )
-       }
+            var token = localStorage.getItem('token')
+            
+             var obj =
+             {
+                id : excluirInput
+             }
+
+             fetch(`https://localhost:7051/api/Produtos/${excluirInput}`,{
+                method: "DELETE",
+                headers: {  
+                  'Content-Type': 'application/json',
+                  'Authorization': 'Bearer ' + token
+                },
+             })
+             .then(response => console.log(response.status))
+            .catch(error => console.error(error));
+        }
    </script>
 </body>
 </html>

@@ -62,15 +62,18 @@
                 categoria: { id: inputCategoria}
             }
             console.log(obj)
-            
-            await fetch(`https://localhost:7051/api/produtos/${inputId}`,{
-                method: "PUT",
-                headers: {  
-                      'Content-Type': 'application/json',
-                      'Authorization': 'Bearer ' + token
-                    },
-                body: JSON.stringify(obj)
-            })
+
+        
+              await fetch(`https://localhost:7051/api/Produtos/editar/${inputId}`,{
+                  method: "PUT",
+                  headers: {  
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token
+                      },
+                  body: JSON.stringify(obj)
+              })
+             
+                    
         }
     
         </script>
