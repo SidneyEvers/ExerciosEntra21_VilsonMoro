@@ -20,9 +20,9 @@
             <div style="margin-left: 10px;">
                 <label class="form-label" for="inputExcluir">Deseja realmente excluir essa categoria?</label>
                 <input type="text" style="width: 300px;" class="form-control" id="inputExcluir" placeholder="informe aqui">
-                <tbody onload="listar()">
+                <tbody>
                 </tbody>
-                <button style="margin-top: 5px;" type="submit" onclick="Excluir(id)" class="btn btn-danger">Confirmar</button>
+                <button style="margin-top: 5px;" type="submit" onclick="Excluir()" class="btn btn-danger">Confirmar</button>
                 <a type="button" style="margin-top: 5px;" href="/Front_End_API_Loja/Consumir_API/Categorias/listar.html" class="btn btn-success">Cancelar</a>
             </div>
 
@@ -31,20 +31,23 @@
 
 
     <script>
-         const params = new URLSearchParams(window.location.search)
-         
         async function Excluir(){
             let excluirInput = document.getElementById('inputExcluir').value
+
+            var token = localStorage.getItem('token')
             
              var obj =
              {
                 id : excluirInput
              }
 
-            await fetch(`https://localhost:7051/api/Categorias/delete/${params.get('id')}`,
+            await fetch(`https://localhost:7051/api/Categorias/delete/{id}`,
             {
                 method: "DELETE",
-                headers: {'Content-Type': 'application/json'},
+                headers: {  
+                  'Content-Type': 'application/json',
+                  'Authorization': 'Bearer ' + token
+              },
                 body: JSON.stringify(obj)
             }
             )

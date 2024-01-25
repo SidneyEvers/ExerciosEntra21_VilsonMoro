@@ -24,7 +24,7 @@
         </div>
         <div>
             <a style="margin-top: 10px;"  href="/Front_End_API_Loja/Consumir_API/index.html" class="btn btn-primary" >Voltar</a>
-            <a style="margin-top: 10px;"  href="/Front_End_API_Loja/Consumir_API/Categorias/adicionar.html" class="btn btn-primary" >Adicionar</a>
+            <a style="margin-top: 10px;"  href="/Front_End_API_Loja/Consumir_API/Produtos/adicionar.html" class="btn btn-primary" >Adicionar</a>
         </div>
 
     </div>
@@ -37,6 +37,7 @@
                 <th scope="col">Valor</th>
                 <th scope="col">Estoque</th>
                 <th scope="col">Categoria</th>
+                <th scope="col">Ações</th>
               </tr>
             </thead>
             <tbody onload="Listar()">
@@ -44,7 +45,6 @@
         </table>
         
     </div>
-    
     
 
 
@@ -55,11 +55,21 @@
             linha = ''
             tabela = document.getElementsByTagName("tbody")[0]
             tabela.innerHTML = ""
-            fetch('https://localhost:7051/api/categorias')
+
+            var token = localStorage.getItem('token')
+
+            fetch('https://localhost:7051/api/Produtos',{
+                method: "GET",
+                headers:{
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+
+                }
+            })
             .then(dados => dados.json())
             .then(response => {
                     response.forEach(element => {
-                    linha = `<tr><td>${element.id}</td><td>${element.nome}</td></tr>`
+                    linha = `<tr><td>${element.id}</td><td>${element.nome}</td><td>${element.valor}</td><td>${element.estoque}</td><td>${element.categoria.nome}</td><td><a type="button" href="/Front_End_API_Loja/Consumir_API/Produtos/excluir.html?id=${element.id}"class="btn btn-danger">Excluir</a><a type="button" href="/Front_End_API_Loja/Consumir_API/Produtos/editar.html" class="btn btn-success" style="margin-left: 5px">Editar</a></td></tr>`
                     tabela.innerHTML += linha
                 });
             })

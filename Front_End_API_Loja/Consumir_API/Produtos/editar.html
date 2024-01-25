@@ -7,37 +7,16 @@
     <title>Document</title>
 </head>
 <style>
-  body{
-    background-color: rgb(173, 173, 173) ;
-  }
-  #cat2{
-    border-radius: 15px;
-    width: 330px;
-    background-color: rgb(151, 148, 145);
-  }
-  #cat3{
-    border-radius: 15px;
-    width: 330px;
-    background-color: rgb(151, 148, 145);
-  }
-  #a1{
-    margin-left: 20px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-  }
-  #a2{
-    margin-top: 50px;
-  }
-
+    body{
+        background-color: rgb(173, 173, 173) ;
+    }
 </style>
 <body>
-  <div id="a2">
-    <div id="cat2"class="container mt-4">
-      <h2>Adicionar produtos</h2>
+    <div class="container mt-4">
+        <h3>Editar Produto</h3>
     </div>
-      <div class="container mt-4" id="cat3"> 
-        <div id="a1">
-          <div class="mb-3">
+    <div class="container mt-4">
+        <div class="mb-3">
             <label for="idInput" class="form-label">Id</label>
             <input type="text" style="width: 250px;" class="form-control" id="idInput">
           </div>
@@ -54,51 +33,46 @@
             <input type="text" style="width: 250px;" class="form-control" id="estoqueInput">
           </div>
           <div class="mb-3">
-            <label for="categoriaoInput" class="form-label">Categoria</label>
+            <label for="categoriaInput" class="form-label">Categoria</label>
             <input type="text" style="width: 250px;" class="form-control" id="categoriaInput">
           </div>
-          <button type="submit" onclick="Adicionar()" class="btn btn-primary">Cadastrar</button>
-        
-        <a href="/Front_End_API_Loja/Consumir_API/Produtos/listar.html" class="btn btn-primary">voltar</a>
-  
-        </div>
-      </div>
+          <button type="submit" onclick="editar()" class="btn btn-primary">Editar</button>
+          <a type="button" class="btn btn-primary" href="/Front_End_API_Loja/Consumir_API/Produtos/listar.html">Voltar</a>
+    </div>
 
-  </div>
+
+
 
     <script>
-        async function Adicionar(){
+        async function editar()
+        {
+            let inputId = document.getElementById('idInput').value
             let inputNome = document.getElementById('nomeInput').value
             let inputValor = document.getElementById('valorInput').value
             let inputEstoque = document.getElementById('estoqueInput').value
-            let categoriaInput = document.getElementById('categoriaInput').value
-
+            let inputCategoria = document.getElementById('categoriaInput').value
+    
             var token = localStorage.getItem('token')
-            
+    
             let obj = {
-                 nome: inputNome,
-                 valor: inputValor,
-                 estoque: inputEstoque,
-                 categoria: { id: categoriaInput }
+                id: inputId,
+                nome: inputNome,
+                valor: inputValor,
+                estoque: inputEstoque,
+                categoria: { id: inputCategoria}
             }
             console.log(obj)
-            try{
-            await fetch('https://localhost:7051/api/Produtos',
-            {
-                method: "POST",
+            
+            await fetch(`https://localhost:7051/api/produtos/${inputId}`,{
+                method: "PUT",
                 headers: {  
-                  'Content-Type': 'application/json',
-                  'Authorization': 'Bearer ' + token   
-                },
-                body:JSON.stringify(obj)
-            }
-            )
-           }catch(error){
-             console.log(error)
-           }
-            alert('Produto inserido com sucesso')
+                      'Content-Type': 'application/json',
+                      'Authorization': 'Bearer ' + token
+                    },
+                body: JSON.stringify(obj)
+            })
         }
-        
-    </script>
+    
+        </script>
 </body>
 </html>
