@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using LojaAPI_Simplificada.Data;
 using LojaAPI_Simplificada.Entities;
 using Microsoft.AspNetCore.Authorization;
+using LojaAPI_Simplificada.Dto;
 
 namespace LojaAPI_Simplificada.Controllers
 {
@@ -57,7 +58,7 @@ namespace LojaAPI_Simplificada.Controllers
 
         // GET: api/Produtos
         [HttpGet]
-        [Authorize(Roles = "empregado,gerente,admin")]
+
         public async Task<ActionResult<IEnumerable<Produtos>>> GetProdutos()
         {
             List<Produtos> produtos = await _context.Produtos_Table.ToListAsync();
@@ -105,15 +106,25 @@ namespace LojaAPI_Simplificada.Controllers
 
         // PUT: api/Produtos/5
         [HttpPut("editar/{id}")]
-        [Authorize(Roles ="gerente,admin")]
-        public async Task<IActionResult> PutProdutos(int id, Produtos produtos)
+
+        public async Task<IActionResult> PutProdutos(int id, produtosDto produtos)
         {
             if (id != produtos.Id)
             {
                 return BadRequest();
             }
+            var produtoExistente = _context.Produtos_Table.FirstOrDefault(x => x.Id == id);
 
-            _context.Entry(produtos).State = EntityState.Modified;
+            var categoria = _context.Categorias_Tables.FirstOrDefault(x => x.Id == produtos.CategoriaId);
+
+            produtoExistente.Nome = produtos.Nome;
+
+            produtoExistente.Valor = produtos.Valor;
+
+            produtoExistente.Estoque = produtos.Estoque;
+
+            produtoExistente.Categoria = categoria;
+            _context.Entry(produtoExistente).State = EntityState.Modified;
 
             try
             {
