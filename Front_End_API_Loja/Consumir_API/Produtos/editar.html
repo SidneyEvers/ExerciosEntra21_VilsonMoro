@@ -59,7 +59,7 @@
                 nome: inputNome,
                 valor: inputValor,
                 estoque: inputEstoque,
-                categoria: { id: inputCategoria}
+                categoriaId: inputCategoria
             }
             console.log(obj)
 
@@ -72,8 +72,8 @@
                       },
                   body: JSON.stringify(obj)
               })
-             
-                    
+            .then(response => console.log(response.status))
+            .catch(error => console.error(error));  
         }
     
         </script>
