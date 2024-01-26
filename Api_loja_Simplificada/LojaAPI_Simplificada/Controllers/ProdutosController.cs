@@ -58,7 +58,7 @@ namespace LojaAPI_Simplificada.Controllers
 
         // GET: api/Produtos
         [HttpGet]
-
+        [Authorize(Roles ="empregado,admin,gerente")]
         public async Task<ActionResult<IEnumerable<Produtos>>> GetProdutos()
         {
             List<Produtos> produtos = await _context.Produtos_Table.ToListAsync();
@@ -106,7 +106,7 @@ namespace LojaAPI_Simplificada.Controllers
 
         // PUT: api/Produtos/5
         [HttpPut("editar/{id}")]
-
+        [Authorize(Roles ="gerente,admin")]
         public async Task<IActionResult> PutProdutos(int id, produtosDto produtos)
         {
             if (id != produtos.Id)
